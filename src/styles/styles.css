@@ -1602,6 +1602,111 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
+   13.5 FORM VALIDATION STATES
+   ============================================ */
+.form__group {
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.form__group--error .form__input {
+  border-bottom-color: #e74c3c !important;
+}
+
+.form__group--error .form__label {
+  color: #e74c3c;
+}
+
+.form__group--success .form__input {
+  border-bottom-color: #27ae60 !important;
+}
+
+.form__group--success .form__label {
+  color: #27ae60;
+}
+
+/* Success checkmark animation */
+.form__checkmark {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #27ae60;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form__group--success .form__checkmark {
+  opacity: 1;
+}
+
+/* Loading spinner for forms */
+.btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Enhanced range slider */
+.form__range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  outline: none;
+  position: relative;
+}
+
+.form__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(184, 68, 30, 0.3);
+  transition: all var(--transition-base);
+}
+
+.form__range::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(184, 68, 30, 0.5);
+}
+
+.form__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(184, 68, 30, 0.3);
+  transition: all var(--transition-base);
+}
+
+.form__range::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(184, 68, 30, 0.5);
+}
+
+/* Progress fill effect for range */
+.form__range::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--value, 50%);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* ============================================
    14. CONTACT SECTION
    ============================================ */
 .contact {
@@ -2310,6 +2415,67 @@ section:nth-of-type(even) {
 [data-scroll].visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Lazy loaded images */
+img[loading="lazy"],
+img[data-src] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+img.lazy-loaded {
+  opacity: 1;
+}
+
+img.lazy-error {
+  opacity: 0.5;
+}
+
+/* Image fallback styles */
+.image-fallback {
+  background: var(--border);
+  min-height: 200px;
+}
+
+/* Blur effects */
+[data-blur] {
+  will-change: filter, transform;
+}
+
+/* Parallax elements */
+[data-parallax] {
+  will-change: transform;
+}
+
+/* Hover effects */
+[data-glow],
+[data-lift],
+[data-tilt] {
+  will-change: transform, box-shadow;
+}
+
+/* Performance optimizations */
+.audio-player,
+.portfolio-card,
+.service-card,
+.bento-item {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reduce animations on mobile for performance */
+@media (max-width: 768px) {
+  [data-parallax],
+  [data-blur] {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  * {
+    will-change: auto !important;
+  }
 }
 
 /* Print styles */
