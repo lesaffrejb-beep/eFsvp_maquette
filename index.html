@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="En français s'il vous plaît - Création narrative et musicale sur-mesure pour vos moments clés. Studio basé à Angers.">
+    <title>En français s'il vous plaît | Studio narratif & musical</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cormorant:ital,wght@1,600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="#home">En français s'il vous plaît</a>
+            </div>
+            <div class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav__menu" id="nav-menu">
+                <li><a href="#home" class="nav__link">Accueil</a></li>
+                <li><a href="#services" class="nav__link">Services</a></li>
+                <li><a href="#formules" class="nav__link">Formules</a></li>
+                <li><a href="#references" class="nav__link">Références</a></li>
+                <li><a href="#faq" class="nav__link">FAQ</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero" id="home">
+        <div class="hero__decoration"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">En français s'il vous plaît</h1>
+            <p class="hero__tagline">Vous avez déjà écrit l'histoire. On ne fera que vous relire.</p>
+            <p class="hero__subtitle">Création narrative et musicale sur-mesure pour vos moments clés</p>
+            <a href="#contact" class="btn btn--primary">Partagez votre histoire</a>
+        </div>
+        <div class="hero__scroll">
+            <span class="hero__scroll-text">Découvrir</span>
+            <div class="hero__scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CE QUE NOUS FAISONS -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section__title">Ce que nous créons</h2>
+            <div class="services__grid">
+
+                <div class="service-card" data-animate>
+                    <div class="service-card__icon service-card__icon--primary"></div>
+                    <h3 class="service-card__title">Prestige culturel</h3>
+                    <p class="service-card__text">La classe d'avoir des auteurs-compositeurs pour votre événement</p>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <div class="service-card__icon service-card__icon--secondary"></div>
+                    <h3 class="service-card__title">Émotion authentique</h3>
+                    <p class="service-card__text">Des moments qui touchent : « J'ai vu des gens pleurer »</p>
+                </div>
+
+                <div class="service-card" data-animate>
+                    <div class="service-card__icon service-card__icon--dark"></div>
+                    <h3 class="service-card__title">Clarté narrative</h3>
+                    <p class="service-card__text">Tout le monde comprend enfin qui vous êtes et ce que vous faites</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: NOS FORMULES -->
+    <section class="formules" id="formules">
+        <div class="container">
+            <h2 class="section__title">Nos formules</h2>
+            <div class="formules__grid">
+
+                <!-- Formule 1 -->
+                <div class="formule-card" data-animate>
+                    <div class="formule-card__badge">À partir de 1 200€</div>
+                    <h3 class="formule-card__title">Écriture seule</h3>
+                    <div class="formule-card__content">
+                        <p class="formule-card__livrable"><strong>Livrable :</strong> Texte écrit (discours, lecture, archive)</p>
+                        <p class="formule-card__delai"><strong>Délai :</strong> 2-3 semaines</p>
+                        <ul class="formule-card__list">
+                            <li>Usage pour cérémonie</li>
+                            <li>Archive textuelle</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn--secondary">En savoir plus</a>
+                </div>
+
+                <!-- Formule 2 -->
+                <div class="formule-card" data-animate>
+                    <div class="formule-card__badge">À partir de 2 500€</div>
+                    <h3 class="formule-card__title">Création complète</h3>
+                    <div class="formule-card__content">
+                        <p class="formule-card__livrable"><strong>Livrable :</strong> Texte + composition + enregistrement audio pro</p>
+                        <p class="formule-card__delai"><strong>Délai :</strong> 3-4 semaines</p>
+                        <ul class="formule-card__list">
+                            <li>Diffusion événement</li>
+                            <li>Utilisation vidéo</li>
+                            <li>Communication</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn--secondary">En savoir plus</a>
+                </div>
+
+                <!-- Formule 3 - POPULAIRE -->
+                <div class="formule-card formule-card--featured" data-animate>
+                    <div class="formule-card__badge formule-card__badge--featured">À partir de 3 600€</div>
+                    <h3 class="formule-card__title">
+                        Performance live
+                        <span class="formule-card__subtitle">(notre signature)</span>
+                    </h3>
+                    <div class="formule-card__content">
+                        <p class="formule-card__livrable"><strong>Livrable :</strong> Concert live (3-45 min)</p>
+                        <p class="formule-card__delai"><strong>Délai :</strong> 4-5 semaines</p>
+                        <p class="formule-card__note">Version spectacle 30-60 min sur devis</p>
+                    </div>
+                    <a href="#contact" class="btn btn--primary">En savoir plus</a>
+                </div>
+
+                <!-- Formule 4 -->
+                <div class="formule-card" data-animate>
+                    <div class="formule-card__badge">Sur devis</div>
+                    <h3 class="formule-card__title">Droits d'exploitation</h3>
+                    <div class="formule-card__content">
+                        <p class="formule-card__livrable"><strong>Livrable :</strong> Droits pour pub, campagne, identité sonore</p>
+                        <p class="formule-card__note">En complément des formules 2 ou 3</p>
+                    </div>
+                    <a href="#contact" class="btn btn--secondary">En savoir plus</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: COMMENT ÇA MARCHE -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section__title">Un process simple et rassurant</h2>
+            <div class="process__timeline">
+
+                <div class="process__step" data-animate>
+                    <div class="process__number">1</div>
+                    <h3 class="process__step-title">Écoute</h3>
+                    <p class="process__step-text">Vous nous racontez votre histoire (2 semaines)</p>
+                </div>
+
+                <div class="process__step" data-animate>
+                    <div class="process__number">2</div>
+                    <h3 class="process__step-title">Création</h3>
+                    <p class="process__step-text">Nous écrivons, composons (3-6 semaines)</p>
+                </div>
+
+                <div class="process__step" data-animate>
+                    <div class="process__number">3</div>
+                    <h3 class="process__step-title">Validation</h3>
+                    <p class="process__step-text">2 allers-retours inclus, vous validez tout</p>
+                </div>
+
+                <div class="process__step" data-animate>
+                    <div class="process__number">4</div>
+                    <h3 class="process__step-title">Performance</h3>
+                    <p class="process__step-text">Nous venons jouer chez vous (ou livraison audio)</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: RÉFÉRENCES / PORTFOLIO -->
+    <section class="references" id="references">
+        <div class="container">
+            <h2 class="section__title">Ils nous ont fait confiance</h2>
+            <div class="references__grid">
+
+                <div class="reference-card reference-card--primary" data-animate>
+                    <div class="reference-card__visual"></div>
+                    <div class="reference-card__content">
+                        <h3 class="reference-card__title">La force de la douceur</h3>
+                        <p class="reference-card__client">Département Maine-et-Loire</p>
+                        <p class="reference-card__type">Hymne officiel</p>
+                        <p class="reference-card__year">2024</p>
+                    </div>
+                </div>
+
+                <div class="reference-card reference-card--secondary" data-animate>
+                    <div class="reference-card__visual"></div>
+                    <div class="reference-card__content">
+                        <h3 class="reference-card__title">Série promotionnelle agricole</h3>
+                        <p class="reference-card__client">Destination Angers / SIVAL</p>
+                        <p class="reference-card__type">Récit narratif</p>
+                        <p class="reference-card__year">2025</p>
+                    </div>
+                </div>
+
+                <div class="reference-card reference-card--dark" data-animate>
+                    <div class="reference-card__visual"></div>
+                    <div class="reference-card__content">
+                        <h3 class="reference-card__title">25 ans & passation</h3>
+                        <p class="reference-card__client">Atelier Lacour</p>
+                        <p class="reference-card__type">Métaphore forêt/entreprise</p>
+                        <p class="reference-card__year">2024</p>
+                    </div>
+                </div>
+
+                <div class="reference-card reference-card--light" data-animate>
+                    <div class="reference-card__visual"></div>
+                    <div class="reference-card__content">
+                        <h3 class="reference-card__title">Histoires de résilience</h3>
+                        <p class="reference-card__client">Réseau Cocagne</p>
+                        <p class="reference-card__type">Portraits collectés</p>
+                        <p class="reference-card__year">2024</p>
+                    </div>
+                </div>
+
+                <div class="reference-card reference-card--ambre" data-animate>
+                    <div class="reference-card__visual"></div>
+                    <div class="reference-card__content">
+                        <h3 class="reference-card__title">État de nature</h3>
+                        <p class="reference-card__client">PNR Loire-Anjou-Touraine</p>
+                        <p class="reference-card__type">Spectacle in situ (40 représentations)</p>
+                        <p class="reference-card__year">2023→</p>
+                    </div>
+                </div>
+
+                <div class="reference-card reference-card--charbon" data-animate>
+                    <div class="reference-card__visual"></div>
+                    <div class="reference-card__content">
+                        <h3 class="reference-card__title">Déambulation historique XVe s.</h3>
+                        <p class="reference-card__client">Clisson</p>
+                        <p class="reference-card__type">Récit immersif</p>
+                        <p class="reference-card__year">2023</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CHIFFRES CLÉS -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid">
+
+                <div class="stat" data-animate>
+                    <div class="stat__number">60+</div>
+                    <div class="stat__label">Représentations depuis 2022</div>
+                </div>
+
+                <div class="stat" data-animate>
+                    <div class="stat__number">15+</div>
+                    <div class="stat__label">Projets institutionnels</div>
+                </div>
+
+                <div class="stat" data-animate>
+                    <div class="stat__number">3-8 sem</div>
+                    <div class="stat__label">Délai moyen de création</div>
+                </div>
+
+                <div class="stat" data-animate>
+                    <div class="stat__number">4 ans</div>
+                    <div class="stat__label">D'expérience terrain</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section__title">Questions fréquentes</h2>
+            <div class="faq__grid">
+
+                <div class="faq__item" data-animate>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>C'est quoi exactement ?</span>
+                        <span class="faq__icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Des auteurs-compositeurs écrivent et jouent votre histoire pour vos moments clés (2-60 min)</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-animate>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Allez-vous comprendre notre métier ?</span>
+                        <span class="faq__icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>On passe 2 semaines à capter vos enjeux. Validation par étapes.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-animate>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Ce ne sera pas gênant ?</span>
+                        <span class="faq__icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Jamais. On vise dignité, vérité, émotion maîtrisée. Vous validez tout avant.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-animate>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Quels délais ?</span>
+                        <span class="faq__icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>3 à 8 semaines selon complexité. Planning écrit dès le départ.</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-animate>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Quel budget ?</span>
+                        <span class="faq__icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>À partir de 1 200€ (texte), 2 500€ (création complète), 3 600€ (live)</p>
+                    </div>
+                </div>
+
+                <div class="faq__item" data-animate>
+                    <button class="faq__question" aria-expanded="false">
+                        <span>Et les droits ?</span>
+                        <span class="faq__icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>Contrat de cession clair (durée/territoires/médias). On adapte à vos besoins.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact__decoration"></div>
+        <div class="container">
+            <div class="contact__content">
+                <p class="contact__quote">Toutes les bonnes histoires méritent d'être racontées</p>
+                <h2 class="contact__title">La vôtre commence maintenant</h2>
+
+                <form class="contact__form" id="contact-form">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="nom" class="form__label">Nom / Prénom *</label>
+                            <input type="text" id="nom" name="nom" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="email" class="form__label">Email *</label>
+                            <input type="email" id="email" name="email" class="form__input" required>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="organisation" class="form__label">Organisation</label>
+                            <input type="text" id="organisation" name="organisation" class="form__input">
+                        </div>
+                        <div class="form__group">
+                            <label for="type-projet" class="form__label">Type de projet *</label>
+                            <select id="type-projet" name="type-projet" class="form__input" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="anniversaire">Anniversaire</option>
+                                <option value="inauguration">Inauguration</option>
+                                <option value="spectacle">Spectacle</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="message" class="form__label">Message *</label>
+                        <textarea id="message" name="message" class="form__input form__textarea" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--large">Partagez votre histoire</button>
+                </form>
+
+                <div class="contact__info">
+                    <p><strong>Email :</strong> <a href="mailto:contact@efsvp.fr">contact@efsvp.fr</a></p>
+                    <p><strong>Base :</strong> Angers, Pays de la Loire</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+
+                <div class="footer__col">
+                    <h3 class="footer__logo">En français s'il vous plaît</h3>
+                    <p class="footer__tagline">Continuez d'écrire.</p>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__title">Navigation</h4>
+                    <ul class="footer__links">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#formules">Formules</a></li>
+                        <li><a href="#references">Références</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h4 class="footer__title">Contact</h4>
+                    <ul class="footer__links">
+                        <li><a href="mailto:contact@efsvp.fr">contact@efsvp.fr</a></li>
+                        <li>Angers, Pays de la Loire</li>
+                        <li><a href="#mentions">Mentions légales</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 En français s'il vous plaît — Studio narratif & musical</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
