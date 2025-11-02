@@ -204,12 +204,16 @@ button {
   width: 100%;
 }
 
+/* ============================================
+   SECTIONS - LE LUXE SILENCIEUX
+   ============================================ */
 section {
-  padding: var(--space-24) 0;
+  /* Espacement vertical XXL - Multiplié par 2 pour prestige */
+  padding: clamp(var(--space-28), 10vw, var(--space-32)) 0;
   position: relative;
 }
 
-/* Alternance fond / surface pour respiration */
+/* Alternance subtile Parchemin/Surface */
 section:nth-of-type(odd) {
   background-color: var(--bg);
 }
@@ -218,97 +222,118 @@ section:nth-of-type(even) {
   background-color: var(--surface);
 }
 
-/* ========== Section Headers ========== */
+/* ========== Section Headers - Majestueux ========== */
 .section__header {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-24); /* x1.5 de l'original */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section__title {
-  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-  margin-bottom: var(--space-4);
-  letter-spacing: -0.005em;
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.02em;
   color: var(--text);
+  margin-bottom: var(--space-8);
 }
 
 .section__subtitle {
+  font-family: var(--font-sans);
   font-size: var(--text-lg);
-  color: var(--muted);
-  max-width: 600px;
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  max-width: 60ch;
   margin: 0 auto;
-  line-height: 1.6;
+  font-weight: 400;
 }
 
 .section__cta {
   text-align: center;
-  margin-top: var(--space-16);
+  margin-top: var(--space-24); /* x1.5 de l'original */
 }
 
 /* ============================================
-   4. BUTTON SYSTEM (Dark Ciné - Sobre)
+   4. BUTTON SYSTEM - AWARD PRESTIGE
    ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   padding: var(--space-4) var(--space-8);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 600;
-  border-radius: 100px;
-  transition: all var(--transition-base);
+  border-radius: var(--border-radius-full);
+  /* Transition élégante et lente */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   cursor: pointer;
   border: none;
   text-decoration: none;
-  min-height: 44px;                      /* Accessibilité: taille mini */
+  min-height: 44px;
+  letter-spacing: 0.01em;
 }
 
 .btn__icon {
   width: 20px;
   height: 20px;
-  transition: transform var(--transition-base);
+  /* Transition synchronisée avec le bouton */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover .btn__icon {
-  transform: translateX(3px);            /* Mouvement sobre */
+  transform: translateX(4px);
 }
 
-/* Primary Button (brique plein) */
+/* Primary Button - Brique Premium */
 .btn--primary {
-  background-color: var(--accent);
+  background-color: var(--primary);
   color: white;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--primary:hover {
-  background-color: var(--accent-hover);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);           /* Magnetic hover sobre */
+  background-color: var(--primary-hover);
+  /* Effet papier décollé subtil */
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-3px);
   color: white;
 }
 
 .btn--primary:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--primary-active);
 }
 
-/* Secondary Button (outline neutre) */
+/* Secondary Button - Outline raffiné */
 .btn--secondary {
   background-color: transparent;
   color: var(--text);
   border: 2px solid var(--border);
+  box-shadow: none;
 }
 
 .btn--secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent-2);
-  background-color: rgba(232, 146, 79, 0.05);
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(184, 68, 30, 0.04);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--secondary:active {
+  transform: translateY(0);
 }
 
 /* Button Sizes */
 .btn--small, .btn--primary-small {
-  padding: var(--space-2) var(--space-6);
+  padding: var(--space-3) var(--space-6);
   font-size: var(--text-sm);
   min-height: 44px;
 }
@@ -320,9 +345,14 @@ section:nth-of-type(even) {
 
 .btn--hero {
   padding: var(--space-6) var(--space-12);
-  font-size: var(--text-xl);
-  box-shadow: var(--shadow-soft);
-  /* Pas d'animation pulse - sobre */
+  font-size: var(--text-lg);
+  font-weight: 700;
+  box-shadow: var(--shadow-lg);
+  letter-spacing: 0.02em;
+}
+
+.btn--hero:hover {
+  box-shadow: var(--shadow-2xl);
 }
 
 .btn--full {
@@ -355,16 +385,16 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
-   5. NAVIGATION (Dark Ciné - Translucide)
+   5. NAVIGATION - AWARD PRESTIGE
    ============================================ */
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-sticky);
   padding: var(--space-6) 0;
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(-100%);
   opacity: 0;
 }
@@ -372,11 +402,12 @@ section:nth-of-type(even) {
 .nav.visible {
   transform: translateY(0);
   opacity: 1;
-  background: rgba(15, 21, 29, 0.7);     /* Fond translucide dark */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Fond parchemin translucide premium */
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur) var(--backdrop-saturate);
+  -webkit-backdrop-filter: var(--backdrop-blur) var(--backdrop-saturate);
   box-shadow: var(--shadow-md);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .nav__container {
@@ -389,15 +420,16 @@ section:nth-of-type(even) {
 }
 
 .nav__logo {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--text);
-  transition: color var(--transition-base);
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
 }
 
 .nav__logo:hover {
-  color: var(--accent-2);
+  color: var(--primary);
 }
 
 .nav__list {
@@ -407,14 +439,16 @@ section:nth-of-type(even) {
 }
 
 .nav__link {
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 500;
   position: relative;
   padding: var(--space-2) 0;
   color: var(--text);
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Underline animé brique → ambre */
+/* Underline animé brique */
 .nav__link::after {
   content: '';
   position: absolute;
@@ -422,8 +456,8 @@ section:nth-of-type(even) {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transition: width var(--transition-base);
+  background: var(--primary);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav__link:hover::after {
@@ -431,7 +465,7 @@ section:nth-of-type(even) {
 }
 
 .nav__link:hover {
-  color: var(--accent-2);
+  color: var(--primary);
 }
 
 /* Mobile Toggle */
@@ -466,17 +500,22 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
-   6. HERO SECTION (Dark Ciné)
+   6. HERO SECTION - AWARD PRESTIGE
    ============================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--bg);            /* Fond sombre */
+  background: linear-gradient(135deg,
+    var(--bg) 0%,
+    var(--surface) 50%,
+    var(--bg) 100%
+  );
+  /* Espacement vertical généreux - Le Luxe Silencieux */
+  padding: var(--space-32) 0;
 }
 
 .hero__video-container {
@@ -486,12 +525,13 @@ section:nth-of-type(even) {
   width: 100%;
   height: 100%;
   z-index: 0;
+  opacity: 0.15;
 }
 
 .hero__video-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--bg);                 /* Uni dark, pas de dégradé */
+  background: var(--surface);
 }
 
 .hero__overlay {
@@ -500,92 +540,120 @@ section:nth-of-type(even) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 21, 29, 0.5);     /* Overlay dark subtil */
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(245, 230, 211, 0.3) 100%
+  );
   z-index: 1;
 }
-
-/* Grain déjà appliqué sur body::before - pas besoin ici */
 
 .hero__content {
   position: relative;
   z-index: 10;
   text-align: center;
   color: var(--text);
-  max-width: 900px;
-  padding: 0 var(--space-6);
+  max-width: 1100px;
+  padding: 0 var(--space-8);
+  margin: 0 auto;
 }
 
-/* Pas d'animation fadeInUp - sobre */
-
-.hero__title-main {
-  font-size: clamp(var(--text-5xl), 7vw, var(--text-6xl));  /* 56-60px */
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  margin-bottom: var(--space-6);
-  display: block;
-  line-height: 1.1;
-  color: var(--text);
-}
-
-/* Tagline avec Cormorant Italic - signature */
-.hero__tagline {
+/* Pretitle - Signature éditoriale */
+.hero__pretitle {
   font-family: var(--font-accent);
-  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+  font-size: var(--text-lg);
   font-style: italic;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: var(--space-8);
+  letter-spacing: 0.02em;
+}
+
+/* Titre principal XXL - LA PROMESSE */
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-6xl); /* 72-128px selon viewport */
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: var(--space-16); /* Espacement XXL */
+  margin-top: var(--space-12);
+}
+
+.hero__title-line {
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.hero__title-line--emphasis {
+  font-style: italic;
+  color: var(--primary);
   font-weight: 600;
-  color: var(--accent-2);                /* Ambre pour signature */
-  margin-bottom: var(--space-2);
-  line-height: 1.4;
 }
 
-/* Soulignement calligraphique pour "s'il vous plaît" */
-.hero__tagline-highlight {
-  position: relative;
+/* Subtitle premium */
+.hero__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  max-width: 60ch;
+  margin: 0 auto var(--space-12);
+  font-weight: 400;
+}
+
+.hero__subtitle-highlight {
   display: inline-block;
+  font-weight: 600;
+  color: var(--primary);
+  font-family: var(--font-accent);
+  font-style: italic;
+  margin-left: var(--space-2);
 }
 
-.hero__tagline-highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+/* Métriques de confiance dans le Hero */
+.hero__trust-metrics {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+  flex-wrap: wrap;
 }
 
-.typewriter-line {
+.hero__metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hero__metric strong {
+  font-family: var(--font-sans);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
   display: block;
 }
 
-/* Pas d'animation typewriter - sobre */
-
-.hero__subtitle {
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-4);
-  color: var(--muted);
-  max-width: var(--text-max-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero__benefits {
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0.05em;
+.hero__metric span {
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
   text-transform: uppercase;
-  margin-bottom: var(--space-8);
-  opacity: 0.9;
+  letter-spacing: 0.08em;
+  font-weight: 500;
 }
 
-.hero__benefits span {
-  display: inline-block;
-  transition: color var(--duration-base) var(--ease-smooth);
-}
-
-.hero__benefits span:hover {
-  color: var(--text);
+/* Anciens styles - à supprimer/remplacer */
+.hero__title-main,
+.hero__tagline,
+.hero__tagline-highlight,
+.typewriter-line,
+.hero__benefits {
+  /* Obsolètes après refonte */
+  display: none;
 }
 
 .hero__scroll {
@@ -967,26 +1035,30 @@ section:nth-of-type(even) {
   text-align: center;
 }
 
-/* Case Card Premium */
+/* Case Card Premium - Award Style */
 .case-card {
-  background: var(--glass-bg);
+  background: var(--glass-bg-dark);
   backdrop-filter: var(--backdrop-blur);
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  transition: all var(--duration-base) var(--ease-smooth);
+  /* Transition élégante et lente */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  box-shadow: var(--shadow-md);
 }
 
 .case-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--glass-border-hover);
-  box-shadow: var(--shadow-xl);
+  /* Effet papier décollé premium */
+  box-shadow: var(--shadow-2xl);
 }
 
 .case-card--featured {
   grid-column: span 1;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow-lg);
 }
 
 .case-card__visual {
@@ -1062,9 +1134,10 @@ section:nth-of-type(even) {
   gap: var(--space-6);
   margin-bottom: var(--space-8);
   padding: var(--space-6);
-  background: rgba(15, 21, 29, 0.4);
+  /* Background adapté au thème parchemin */
+  background: var(--surface-dimmed);
   border-radius: var(--border-radius);
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--primary);
 }
 
 .case-card__step {
@@ -1486,24 +1559,24 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
-   10. PROCESS TIMELINE
+   10. PROCESS TIMELINE - AWARD PRESTIGE
    ============================================ */
 .process {
-  background-color: var(--bg);
+  background-color: var(--surface);
   position: relative;
 }
 
 .process__timeline {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
 
 .process__step {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: var(--space-8);
-  margin-bottom: var(--space-16);
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-12);
+  margin-bottom: var(--space-24); /* Espacement XXL entre les étapes */
   position: relative;
 }
 
@@ -1511,32 +1584,45 @@ section:nth-of-type(even) {
   margin-bottom: 0;
 }
 
+/* Numéros stylisés avec Newsreader */
 .process__step-number {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent) 100%);
+  background: var(--primary);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
   font-weight: 700;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
   position: relative;
   z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.process__step:hover .process__step-number {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-2xl);
+}
+
+/* Ligne de connexion élégante */
 .process__connector {
   position: absolute;
-  top: 80px;
-  left: 40px;
-  width: 2px;
-  height: calc(100% + var(--space-16));
-  background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+  top: 100px;
+  left: 50px;
+  width: 3px;
+  height: calc(100% + var(--space-24));
+  background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--border) 100%
+  );
   transform: translateX(-50%);
   z-index: 1;
+  opacity: 0.3;
 }
 
 .process__step:last-child .process__connector {
@@ -1544,34 +1630,49 @@ section:nth-of-type(even) {
 }
 
 .process__step-content {
-  background: var(--surface);
-  border-radius: 16px;
-  padding: var(--space-8);
-  box-shadow: var(--shadow-lg);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-md);
   position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process__step:hover .process__step-content {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--glass-border-hover);
 }
 
 .process__step-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--accent);
-  margin-bottom: var(--space-4);
+  width: 56px;
+  height: 56px;
+  color: var(--primary);
+  margin-bottom: var(--space-6);
 }
 
 .process__step-title {
+  font-family: var(--font-serif);
   font-size: var(--text-3xl);
-  margin-bottom: var(--space-2);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .process__step-duration {
   display: inline-block;
-  padding: var(--space-2) var(--space-4);
-  background-color: var(--border);
-  color: var(--muted);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--surface-dimmed);
+  color: var(--text-secondary);
   font-size: var(--text-sm);
   font-weight: 600;
-  border-radius: 100px;
-  margin-bottom: var(--space-4);
+  border-radius: var(--border-radius-full);
+  margin-bottom: var(--space-6);
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
 }
 
 .process__step-description {
@@ -1714,13 +1815,19 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
-   12. STATS SECTION
+   12. STATS SECTION - BIG NUMBERS PRESTIGE
    ============================================ */
 .stats {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  /* Background sobre brique sur parchemin */
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    oklch(calc(var(--primary-l) + 0.05) var(--primary-c) var(--primary-h)) 100%
+  );
   color: white;
   position: relative;
   overflow: hidden;
+  padding: var(--space-32) 0;
 }
 
 .stats::before {
@@ -1730,36 +1837,58 @@ section:nth-of-type(even) {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.stats__header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  position: relative;
+  z-index: 1;
+}
+
+.stats__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
 }
 
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-12);
   position: relative;
   z-index: 1;
 }
 
 .stat-card {
   text-align: center;
-  padding: var(--space-6);
+  padding: var(--space-8);
 }
 
 .stat-card__number {
-  font-family: var(--font-display);
-  font-size: var(--text-7xl);
-  font-weight: 700;
+  font-family: var(--font-sans);
+  /* BIG NUMBERS - Extra Large */
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 900;
   line-height: 1;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   display: block;
+  color: white;
+  /* Animation compteur se déclenchera via JS */
 }
 
 .stat-card__label {
-  font-size: var(--text-lg);
-  opacity: 0.95;
-  line-height: 1.4;
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  opacity: 0.9;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 /* ============================================
