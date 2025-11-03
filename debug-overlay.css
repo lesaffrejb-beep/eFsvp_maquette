@@ -1,14 +1,23 @@
 /* ============================================
-   DEBUG ANTI-VOILE GRIS - DIAGNOSTIC RADICAL
-   À RETIRER APRÈS IDENTIFICATION DU COUPABLE
+   DEBUG ANTI-VOILE GRIS - VERSION 2 ULTRA RADICAL
+   Test: désactivation grain + backgrounds
    ============================================ */
+
+/* 🚨 TEST RADICAL: BACKGROUND ROUGE VIF POUR IDENTIFIER LE VOILE */
+body {
+  background-image: none !important;
+  /* Si vous voyez un voile gris sur ce fond rouge, c'est qu'un élément couvre la page */
+  background-color: #FF0000 !important; /* ROUGE VIF pour debug */
+  /* Alternative: utilisez #F5E6D3 pour le parchemin normal */
+}
 
 /* 🚨 FORCER TOUS LES CONTENEURS GLOBAUX À ÊTRE OPAQUES */
 body,
 html,
 #app,
 .wrapper,
-main {
+main,
+section {
   opacity: 1 !important;
   filter: none !important;
   backdrop-filter: none !important;
@@ -59,21 +68,30 @@ div[style*="position: absolute"] {
   outline: 2px solid yellow !important;
 }
 
-/* 🚨 FORCER HERO OVERLAY À RESTER DANS LE HERO UNIQUEMENT */
+/* 🚨 DÉSACTIVER COMPLÈTEMENT LE HERO OVERLAY */
 .hero__overlay {
-  /* L'overlay du hero doit rester scopé dans .hero */
-  position: absolute !important;
-  /* S'assurer qu'il ne déborde pas */
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  display: none !important;
+}
+
+/* 🚨 DÉSACTIVER LE HERO VIDEO PLACEHOLDER AUSSI */
+.hero__video-placeholder {
+  display: none !important;
 }
 
 /* 🚨 S'ASSURER QUE LE HERO EST BIEN ISOLÉ */
 .hero {
   isolation: isolate !important;
   position: relative !important;
+  z-index: auto !important;
+  /* Mettre un background clair pour voir si c'est le hero qui pose problème */
+  background: #F5E6D3 !important;
+}
+
+/* 🚨 FORCER TOUTES LES SECTIONS À AVOIR UN Z-INDEX ET ÊTRE OPAQUES */
+section {
+  position: relative !important;
+  z-index: 1 !important;
+  opacity: 1 !important;
 }
 
 /* 🚨 DEBUG: Colorer les sections pour voir leur opacité */
