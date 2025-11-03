@@ -24,6 +24,29 @@ import { Pagination, Autoplay } from 'swiper/modules';
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
+/* ==== ANTI-VEIL FAILSAFE (final) ==== */
+const antiVeilFailsafe = () => {
+  ['html','body','main','#app','#main'].forEach(sel => {
+    const el = document.querySelector(sel);
+    if (el) {
+      el.style.opacity = '1';
+      el.style.filter = 'none';
+      el.style.mixBlendMode = 'normal';
+      el.style.backdropFilter = 'none';
+    }
+  });
+  document.body?.classList?.remove('dim','overlay','veil','backdrop','blurred');
+};
+// appliquer tout de suite + en fin de chargement
+antiVeilFailsafe();
+window.addEventListener('load', antiVeilFailsafe);
+// ré-appliquer périodiquement si GSAP tourne (sécurité)
+if (window.gsap && window.gsap.ticker) {
+  window.gsap.ticker.add(() => {
+    if (window.gsap.ticker.frame % 60 === 0) antiVeilFailsafe(); // ~1 fois/s
+  });
+}
+
 // ============================================
 // APP CLASS - Orchestration Premium
 // ============================================
@@ -39,9 +62,6 @@ class App {
   async init() {
     // 0. Error Handler (TOUJOURS en premier)
     this.initErrorHandler();
-
-    // 0.5 Anti-veil failsafe immédiat
-    this.applyAntiVeilFailsafe();
 
     try {
       // 1. Preloader
@@ -67,21 +87,6 @@ class App {
       console.error('❌ Critical initialization error:', error);
       this.handleCriticalError(error);
     }
-  }
-
-  /**
-   * Anti-veil Failsafe - Garantit aucun voile global
-   */
-  applyAntiVeilFailsafe() {
-    ['html', 'body', 'main', '#app', '#main'].forEach(selector => {
-      const el = document.querySelector(selector);
-      if (el) {
-        el.style.opacity = '1';
-        el.style.filter = 'none';
-        el.style.backdropFilter = 'none';
-        el.style.mixBlendMode = 'normal';
-      }
-    });
   }
 
   /**
@@ -268,35 +273,6 @@ class App {
             event_category: 'Performance',
           });
         }
-
-        // ========== FAILSAFE ANTI-VEIL RENFORCÉ ==========
-        // Force opacity:1 et filter:none sur les éléments globaux pour garantir aucun voile résiduel
-        const antiVeilFailsafe = () => {
-          ['html', 'body', 'main', '#app', '#main'].forEach(selector => {
-            const el = document.querySelector(selector);
-            if (el) {
-              el.style.opacity = '1';
-              el.style.filter = 'none';
-              el.style.backdropFilter = 'none';
-              el.style.mixBlendMode = 'normal';
-            }
-          });
-        };
-
-        // Appliquer immédiatement
-        antiVeilFailsafe();
-
-        // Ré-appliquer après toute animation GSAP globale (failsafe)
-        if (window.gsap) {
-          window.gsap.ticker.add(() => {
-            // Check périodique léger (toutes les 60 frames = ~1s)
-            if (window.gsap.ticker.frame % 60 === 0) {
-              antiVeilFailsafe();
-            }
-          });
-        }
-
-        console.log('✅ Anti-veil failsafe renforcé applied');
       }, 0);
     });
   }
