@@ -116,24 +116,18 @@ body {
   line-height: 1.75;                  /* 17px / 28px (confort) */
   color: var(--text);
   background-color: var(--bg);
+  /* GRAIN EN BACKGROUND DIRECT - Plus de pseudo-élément qui crée un voile */
+  background-image: var(--grain);
+  background-size: 200px 200px;
+  background-attachment: fixed;
+  background-repeat: repeat;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Grain texture overlay on body - CORRIGÉ FINAL : z-index NÉGATIF pour être derrière TOUT */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--grain);
-  pointer-events: none;
-  z-index: -1;  /* DERRIÈRE TOUT le contenu */
-  opacity: 0.03;  /* Texture subtile uniquement */
-  /* mix-blend-mode supprimé pour éviter le délavage */
-}
+/* GRAIN PSEUDO-ÉLÉMENT SUPPRIMÉ - C'était la cause du voile blanc */
+/* Le grain est maintenant directement en background du body */
+/* Plus aucun pseudo-élément qui peut créer un layer problématique */
 
 /* ========== Typography (hiérarchie stricte) ========== */
 h1, h2, h3, h4, h5, h6 {
