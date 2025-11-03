@@ -215,8 +215,8 @@ body {
   min-height: 100vh;
 }
 
-/* Grain texture overlay global */
-body::before {
+/* Grain texture overlay global - DÉSACTIVÉ (doublon avec styles.css) */
+/* body::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -225,7 +225,7 @@ body::before {
   z-index: var(--z-tooltip);
   opacity: 1;
   mix-blend-mode: overlay;
-}
+} */
 
 /* ========== TYPOGRAPHY PREMIUM ========== */
 h1, h2, h3, h4, h5, h6 {
