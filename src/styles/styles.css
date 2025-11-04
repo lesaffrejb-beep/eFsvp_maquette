@@ -473,15 +473,15 @@ section:nth-of-type(even) {
   border-radius: 2px;
 }
 
-.nav__toggle[aria-expanded="true"] span:nth-child(1) {
+.nav__toggle[aria-expanded=true] span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
 
-.nav__toggle[aria-expanded="true"] span:nth-child(2) {
+.nav__toggle[aria-expanded=true] span:nth-child(2) {
   opacity: 0;
 }
 
-.nav__toggle[aria-expanded="true"] span:nth-child(3) {
+.nav__toggle[aria-expanded=true] span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
 
@@ -642,7 +642,7 @@ section:nth-of-type(even) {
   outline-offset: 2px;
 }
 
-.hero__sound-toggle[aria-pressed="true"],
+.hero__sound-toggle[aria-pressed=true],
 .hero__sound-toggle:hover {
   background: rgba(232, 146, 79, 0.22);
   border-color: rgba(232, 146, 79, 0.5);
@@ -669,7 +669,7 @@ section:nth-of-type(even) {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-.hero__sound-toggle[aria-pressed="true"] .hero__sound-toggle-wave span {
+.hero__sound-toggle[aria-pressed=true] .hero__sound-toggle-wave span {
   animation-play-state: running;
 }
 
@@ -957,7 +957,7 @@ section:nth-of-type(even) {
   outline-offset: 2px;
 }
 
-.knowledge__voice[aria-expanded="true"],
+.knowledge__voice[aria-expanded=true],
 .knowledge__voice:hover {
   background: rgba(232, 146, 79, 0.2);
   border-color: rgba(232, 146, 79, 0.6);
@@ -980,7 +980,7 @@ section:nth-of-type(even) {
   animation-play-state: paused;
 }
 
-.knowledge__voice[aria-expanded="true"] .knowledge__voice-wave span {
+.knowledge__voice[aria-expanded=true] .knowledge__voice-wave span {
   animation-play-state: running;
 }
 
@@ -2328,7 +2328,7 @@ section:nth-of-type(even) {
   flex-shrink: 0;
 }
 
-.faq__question[aria-expanded="true"] .faq__icon {
+.faq__question[aria-expanded=true] .faq__icon {
   transform: rotate(180deg);
 }
 
@@ -2660,7 +2660,7 @@ section:nth-of-type(even) {
   margin: var(--space-6) 0;
 }
 
-.form__checkbox input[type="checkbox"] {
+.form__checkbox input[type=checkbox] {
   width: 20px;
   height: 20px;
   min-width: 20px;
@@ -2673,11 +2673,11 @@ section:nth-of-type(even) {
   transition: all var(--transition-base);
 }
 
-.form__checkbox input[type="checkbox"]:hover {
+.form__checkbox input[type=checkbox]:hover {
   border-color: var(--accent);
 }
 
-.form__checkbox input[type="checkbox]:focus-visible {
+.form__checkbox input[type=checkbox]:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -3229,7 +3229,7 @@ section:nth-of-type(even) {
 }
 
 /* Lazy loaded images */
-img[loading="lazy"],
+img[loading=lazy],
 img[data-src] {
   opacity: 0;
   transition: opacity 0.4s ease;
