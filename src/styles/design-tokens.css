@@ -39,6 +39,10 @@
   --dark-section-bg: #0E151B;     /* Pour sections sombres (témoignages) */
   --dark-section-bg-end: #141E26; /* Gradient de fin */
 
+  /* ===== Fond sombre pour header et sections premiums ===== */
+  --bg-dark: #0F141A;              /* Fond sombre principal */
+  --bg-dark-2: #141E26;            /* Gradient hero/sections */
+
   /* ===== Accent aliases ===== */
   --accent: var(--primary);
   --accent-hover: var(--primary-hover);

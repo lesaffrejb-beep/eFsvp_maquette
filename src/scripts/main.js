@@ -18,7 +18,7 @@ import { LazyLoadManager } from './modules/lazyLoad.js';
 import { FormValidator } from './modules/formValidator.js';
 import { AnimationsManager } from './modules/animations.js';
 import { ProgressBar } from './modules/progressBar.js';
-import { AmbientAudioManager } from './modules/ambientAudio.js';
+import { CopyEmail } from './modules/copyEmail.js';
 import { KnowledgeVoicePlayer } from './modules/knowledgeVoice.js';
 import { ProcessReveal } from './modules/processReveal.js';
 import Swiper from 'swiper';
@@ -174,9 +174,8 @@ class App {
     // Hero
     this.modules.hero = new HeroManager();
 
-    // Ambient audio toggle
-    this.modules.ambientAudio = new AmbientAudioManager();
-    this.modules.ambientAudio.init();
+    // Copy Email functionality
+    this.modules.copyEmail = new CopyEmail();
 
     // Knowledge voice excerpt
     this.modules.knowledgeVoice = new KnowledgeVoicePlayer();
