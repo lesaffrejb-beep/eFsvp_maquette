@@ -32,18 +32,33 @@ export class AnimationsManager {
     const fadeUpElements = gsap.utils.toArray('[data-scroll]');
 
     if (fadeUpElements.length > 0) {
-      ScrollTrigger.batch(fadeUpElements, {
-        onEnter: (elements) => {
-          gsap.from(elements, {
-            opacity: 0,
-            y: 60,
-            stagger: 0.15,
-            duration: 0.8,
-            ease: 'power3.out',
+      const reveal = (element) => {
+        element.classList.add('visible');
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              reveal(entry.target);
+              observer.unobserve(entry.target);
+            }
           });
         },
-        start: 'top 85%',
-        once: true,
+        { rootMargin: '0px 0px -15% 0px' }
+      );
+
+      fadeUpElements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.85) {
+          reveal(element);
+        } else {
+          element.style.opacity = '0';
+          element.style.transform = 'translateY(30px)';
+          observer.observe(element);
+        }
       });
     }
 

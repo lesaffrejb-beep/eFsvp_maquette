@@ -36,6 +36,13 @@ const antiVeilFailsafe = () => {
     }
   });
   document.body?.classList?.remove('dim','overlay','veil','backdrop','blurred');
+  document.querySelectorAll('[data-scroll]').forEach((el) => {
+    const opacity = parseFloat(window.getComputedStyle(el).opacity);
+    if (!Number.isNaN(opacity) && opacity < 1) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
+  });
 };
 // appliquer tout de suite + en fin de chargement
 antiVeilFailsafe();

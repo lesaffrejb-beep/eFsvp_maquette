@@ -2858,15 +2858,16 @@ section:nth-of-type(even) {
 }
 
 /* Smooth fade-in on scroll */
+/* Default to fully visible so the UI stays opaque even if JS animations fail */
 [data-scroll] {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 [data-scroll].visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 /* Lazy loaded images */
