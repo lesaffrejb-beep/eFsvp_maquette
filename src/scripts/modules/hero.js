@@ -36,9 +36,13 @@ export class HeroManager {
       playPromise.catch((error) => {
         console.log('Autoplay prevented:', error);
         // Fallback: play on user interaction
-        document.addEventListener('click', () => {
-          this.video.play();
-        }, { once: true });
+        document.addEventListener(
+          'click',
+          () => {
+            this.video.play();
+          },
+          { once: true }
+        );
       });
     }
   }

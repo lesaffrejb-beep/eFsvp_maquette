@@ -38,9 +38,12 @@ export class FormValidator {
 
       // Special handling for different input types
       if (field.type === 'email') {
-        field.addEventListener('input', this.debounce(() => {
-          this.validateField(field);
-        }, 500));
+        field.addEventListener(
+          'input',
+          this.debounce(() => {
+            this.validateField(field);
+          }, 500)
+        );
       }
     });
 
@@ -60,13 +63,13 @@ export class FormValidator {
     const rules = [];
 
     if (field.hasAttribute('required')) {
-      rules.push({ type: 'required', message: 'Ce champ est requis' });
+      rules.push({ type: 'required', message: 'Ce champ est requis.' });
     }
 
     if (field.type === 'email') {
       rules.push({
         type: 'email',
-        message: 'Veuillez entrer une adresse email valide',
+        message: "Format d'email invalide (ex. nom@entreprise.fr).",
         pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       });
     }
@@ -74,7 +77,7 @@ export class FormValidator {
     if (field.pattern) {
       rules.push({
         type: 'pattern',
-        message: 'Format invalide',
+        message: 'Format invalide. Veuillez vérifier votre saisie.',
         pattern: new RegExp(field.pattern),
       });
     }
@@ -82,7 +85,7 @@ export class FormValidator {
     if (field.minLength > 0) {
       rules.push({
         type: 'minLength',
-        message: `Minimum ${field.minLength} caractères`,
+        message: `Minimum ${field.minLength} caractères requis.`,
         value: field.minLength,
       });
     }
@@ -90,7 +93,7 @@ export class FormValidator {
     if (field.maxLength > 0) {
       rules.push({
         type: 'maxLength',
-        message: `Maximum ${field.maxLength} caractères`,
+        message: `Maximum ${field.maxLength} caractères autorisés.`,
         value: field.maxLength,
       });
     }
@@ -251,7 +254,7 @@ export class FormValidator {
     let isValid = true;
     let firstErrorField = null;
 
-    this.fields.forEach((fieldData, fieldName) => {
+    this.fields.forEach((fieldData) => {
       const field = fieldData.element;
 
       if (!this.validateField(field)) {
@@ -315,12 +318,11 @@ export class FormValidator {
         this.resetAllFields();
         this.setButtonState('default');
       }, 2000);
-
     } catch (error) {
       console.error('Form submission error:', error);
 
       this.setButtonState('error');
-      this.showErrorModal();
+      this.showErrorModal(error);
 
       setTimeout(() => {
         this.setButtonState('default');
@@ -330,7 +332,7 @@ export class FormValidator {
     }
   }
 
-  async submitToAPI(data) {
+  async submitToAPI(_data) {
     // Simulate network delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
@@ -338,7 +340,7 @@ export class FormValidator {
     // const response = await fetch('/api/contact', {
     //   method: 'POST',
     //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data),
+    //   body: JSON.stringify(_data),
     // });
     //
     // if (!response.ok) {
@@ -443,11 +445,22 @@ export class FormValidator {
     setTimeout(closeModal, 5000);
   }
 
-  showErrorModal() {
-    // Show error toast instead of modal
+  showErrorModal(error) {
+    // Show error toast instead of modal with specific message
     const toast = document.createElement('div');
     toast.className = 'error-toast error-toast--visible';
     toast.setAttribute('role', 'alert');
+
+    // Determine specific error message
+    let errorMessage = 'Veuillez réessayer dans quelques instants.';
+    if (error && error.message) {
+      if (error.message.includes('network') || error.message.includes('fetch')) {
+        errorMessage = 'Envoi impossible (problème réseau). Vérifiez votre connexion et réessayez.';
+      } else if (error.message.includes('timeout')) {
+        errorMessage = "Délai d'attente dépassé. Réessayez dans quelques minutes.";
+      }
+    }
+
     toast.innerHTML = `
       <div class="error-toast__icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -458,7 +471,7 @@ export class FormValidator {
       </div>
       <div class="error-toast__content">
         <p class="error-toast__title">Erreur d'envoi</p>
-        <p class="error-toast__message">Veuillez réessayer dans quelques instants.</p>
+        <p class="error-toast__message">${errorMessage}</p>
       </div>
     `;
 
@@ -482,7 +495,8 @@ export class FormValidator {
       output.textContent = `~${value.toLocaleString('fr-FR')}€`;
 
       // Update slider gradient
-      const percent = ((value - parseInt(slider.min)) / (parseInt(slider.max) - parseInt(slider.min))) * 100;
+      const percent =
+        ((value - parseInt(slider.min)) / (parseInt(slider.max) - parseInt(slider.min))) * 100;
       slider.style.setProperty('--value', `${percent}%`);
     };
 

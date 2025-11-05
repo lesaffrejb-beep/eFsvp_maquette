@@ -99,11 +99,7 @@ export class AudioPlayerManager {
         this.updatePlayButton(playBtn, isPlaying);
 
         // Animate button
-        gsap.fromTo(
-          playBtn,
-          { scale: 0.9 },
-          { scale: 1, duration: 0.3, ease: 'back.out(2)' }
-        );
+        gsap.fromTo(playBtn, { scale: 0.9 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' });
       });
 
       // Time update
@@ -141,7 +137,6 @@ export class AudioPlayerManager {
         playBtn,
         container,
       });
-
     } catch (error) {
       console.error(`Failed to create audio player for ${waveformId}:`, error);
       this.showFallback(container, playBtn);

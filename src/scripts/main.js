@@ -30,7 +30,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ==== ANTI-VEIL FAILSAFE (final) ==== */
 const antiVeilFailsafe = () => {
-  ['html','body','main','#app','#main'].forEach(sel => {
+  ['html', 'body', 'main', '#app', '#main'].forEach((sel) => {
     const el = document.querySelector(sel);
     if (el) {
       el.style.opacity = '1';
@@ -39,7 +39,7 @@ const antiVeilFailsafe = () => {
       el.style.backdropFilter = 'none';
     }
   });
-  document.body?.classList?.remove('dim','overlay','veil','backdrop','blurred');
+  document.body?.classList?.remove('dim', 'overlay', 'veil', 'backdrop', 'blurred');
   document.querySelectorAll('[data-scroll]').forEach((el) => {
     const opacity = parseFloat(window.getComputedStyle(el).opacity);
     if (!Number.isNaN(opacity) && opacity < 1) {
@@ -308,8 +308,6 @@ class App {
     const navMenu = document.getElementById('nav-menu');
 
     // Show on scroll
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
 
@@ -318,17 +316,56 @@ class App {
       } else {
         nav?.classList.remove('visible');
       }
-
-      lastScroll = currentScroll;
     });
 
-    // Mobile menu
+    // Update active nav link based on scroll position
+    this.updateActiveNavLink();
+    window.addEventListener('scroll', () => this.updateActiveNavLink());
+
+    // Mobile menu avec focus trap
     if (navToggle && navMenu) {
+      let focusableElements = [];
+      let firstFocusable = null;
+      let lastFocusable = null;
+
+      const updateFocusableElements = () => {
+        focusableElements = Array.from(navMenu.querySelectorAll('a[href], button:not([disabled])'));
+        firstFocusable = focusableElements[0];
+        lastFocusable = focusableElements[focusableElements.length - 1];
+      };
+
       navToggle.addEventListener('click', () => {
         const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
         navToggle.setAttribute('aria-expanded', !isExpanded);
         navMenu.classList.toggle('active');
         document.body.style.overflow = isExpanded ? '' : 'hidden';
+
+        // Focus premier élément quand le menu s'ouvre
+        if (!isExpanded) {
+          updateFocusableElements();
+          setTimeout(() => firstFocusable?.focus(), 100);
+        } else {
+          navToggle.focus();
+        }
+      });
+
+      // Focus trap: empêcher Tab de sortir du menu mobile
+      navMenu.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab' || !navMenu.classList.contains('active')) return;
+
+        if (e.shiftKey) {
+          // Shift + Tab
+          if (document.activeElement === firstFocusable) {
+            e.preventDefault();
+            lastFocusable?.focus();
+          }
+        } else {
+          // Tab
+          if (document.activeElement === lastFocusable) {
+            e.preventDefault();
+            firstFocusable?.focus();
+          }
+        }
       });
 
       navMenu.querySelectorAll('a').forEach((link) => {
@@ -339,6 +376,32 @@ class App {
         });
       });
     }
+  }
+
+  // Update aria-current on navigation links
+  updateActiveNavLink() {
+    const navLinks = document.querySelectorAll('.nav__link');
+    const sections = document.querySelectorAll('section[id]');
+
+    let currentSection = '';
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      const scrollPos = window.pageYOffset + 100; // Offset pour le header
+
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.removeAttribute('aria-current');
+      const href = link.getAttribute('href');
+      if (href && href.includes(`#${currentSection}`)) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
   }
 
   // ========== SCROLL REVEAL (géré par AnimationsManager) ==========
@@ -440,8 +503,18 @@ class App {
   initFAQ() {
     const faqItems = document.querySelectorAll('.faq__item');
 
-    faqItems.forEach((item) => {
+    faqItems.forEach((item, index) => {
       const question = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+
+      // Ajouter IDs uniques et aria-controls si pas déjà présents
+      if (answer && !answer.id) {
+        answer.id = `faq-answer-${index}`;
+      }
+      if (question && answer) {
+        question.setAttribute('aria-controls', answer.id);
+        question.setAttribute('aria-expanded', 'false');
+      }
 
       question?.addEventListener('click', () => {
         const isActive = item.classList.contains('active');

@@ -54,7 +54,12 @@ body {
 }
 
 /* ========== TYPOGRAPHY PREMIUM ========== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: var(--leading-tight);
@@ -62,10 +67,21 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text);
 }
 
-h1 { font-size: var(--text-6xl); }
-h2 { font-size: var(--text-4xl); line-height: var(--leading-snug); }
-h3 { font-size: var(--text-2xl); line-height: var(--leading-snug); }
-h4 { font-size: var(--text-xl); line-height: var(--leading-normal); }
+h1 {
+  font-size: var(--text-6xl);
+}
+h2 {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-snug);
+}
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+}
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--leading-normal);
+}
 
 p {
   max-width: var(--text-max-width);
@@ -81,7 +97,8 @@ a:hover {
   color: var(--accent);
 }
 
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -97,26 +114,26 @@ button {
 /* ========== CURSOR STATES Premium ========== */
 a,
 button,
-[role="button"],
-[type="button"],
-[type="submit"],
-[type="reset"],
-input[type="checkbox"],
-input[type="radio"],
+[role='button'],
+[type='button'],
+[type='submit'],
+[type='reset'],
+input[type='checkbox'],
+input[type='radio'],
 select,
 summary,
 label[for] {
   cursor: pointer;
 }
 
-a[href^="tel"],
-a[href^="mailto"] {
+a[href^='tel'],
+a[href^='mailto'] {
   cursor: pointer;
 }
 
 button:disabled,
 [disabled],
-[aria-disabled="true"] {
+[aria-disabled='true'] {
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -192,8 +209,12 @@ select:focus-visible {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
@@ -217,7 +238,8 @@ select:focus-visible {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -246,3 +268,14 @@ select:focus-visible {
 /* lg: 1024-1279px */
 /* xl: 1280-1535px */
 /* 2xl: 1536px+ */
+
+/* ========== SCROLL MARGIN (évite chevauchement sticky header) ========== */
+section,
+[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+/* Exception pour hero qui a déjà son propre padding */
+#hero {
+  scroll-margin-top: 0;
+}
