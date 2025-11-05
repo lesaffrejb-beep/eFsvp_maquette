@@ -53,5 +53,59 @@
     "format": "WebP pour photos (max 1600px largeur), SVG pour logos",
     "quality": "WebP qualité 85%, @2x pour Retina",
     "linking": "Dans Webflow CMS Collections, lier les images aux projets selon ce mapping"
+  "metadata": {
+    "source": "Chunks #1 + #2 (fichier complet)",
+    "exportPlan": {
+      "format": "WebP",
+      "resolution": "@2x",
+      "maxWidth": "1600px",
+      "namingConvention": "kebab-case"
+    },
+    "note": "Analyse complète : le site utilise principalement des gradients CSS plutôt que des images réelles. Seuls les médias hero (vidéos) et favicon sont référencés."
+  },
+  "videos": [
+    {
+      "original": "/media/efsvp-hero.mp4",
+      "description": "Vidéo hero background (MP4)",
+      "usage": "Hero section - full bleed background",
+      "optimizationNeeded": true,
+      "notes": "Vérifier taille et compression"
+    },
+    {
+      "original": "/media/efsvp-hero.webm",
+      "description": "Vidéo hero background (WebM)",
+      "usage": "Hero section - alternative format",
+      "optimizationNeeded": true,
+      "notes": "Vérifier taille et compression"
+    }
+  ],
+  "icons": [
+    {
+      "original": "/favicon.svg",
+      "webflowName": "favicon.svg",
+      "description": "Favicon du site",
+      "usage": "Favicon, OG image",
+      "format": "SVG",
+      "notes": "Déjà optimisé (SVG)"
+    }
+  ],
+  "images": [],
+  "webflowAssetStructure": {
+    "folders": [
+      "/assets/videos/",
+      "/assets/icons/",
+      "/assets/images/",
+      "/assets/images/portfolio/",
+      "/assets/images/clients/"
+    ]
+  },
+  "placeholderStrategy": {
+    "note": "Actuellement, les visuels utilisent des gradients CSS plutôt que des images",
+    "examples": [
+      "case-card__gradient avec linear-gradient",
+      "audio-player__artwork-placeholder avec gradient",
+      "portfolio-card__color avec gradient"
+    ],
+    "webflowImplementation": "Utiliser des divs avec classes de gradient ou couleurs de fond"
   }
 }
