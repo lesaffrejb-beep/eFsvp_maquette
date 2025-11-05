@@ -82,7 +82,7 @@
   font-family: var(--font-sans);
   font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1;
   display: block;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -165,7 +165,9 @@
   width: 20px;
   height: 20px;
   color: var(--accent);
-  transition: transform var(--duration-base) var(--ease-smooth), color var(--duration-base) var(--ease-smooth);
+  transition:
+    transform var(--duration-base) var(--ease-smooth),
+    color var(--duration-base) var(--ease-smooth);
   flex-shrink: 0;
 }
 
@@ -173,14 +175,16 @@
   color: var(--accent-hover);
 }
 
-.faq__question[aria-expanded="true"] .faq__icon {
+.faq__question[aria-expanded='true'] .faq__icon {
   transform: rotate(45deg);
 }
 
 .faq__answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--duration-slow) var(--ease-smooth), padding var(--duration-slow) var(--ease-smooth);
+  transition:
+    max-height var(--duration-slow) var(--ease-smooth),
+    padding var(--duration-slow) var(--ease-smooth);
 }
 
 .faq__item.active .faq__answer {
@@ -273,10 +277,18 @@
   transform: translateY(0);
 }
 
-.process__step:nth-child(1).is-inview { transition-delay: 0s; }
-.process__step:nth-child(2).is-inview { transition-delay: 0.08s; }
-.process__step:nth-child(3).is-inview { transition-delay: 0.16s; }
-.process__step:nth-child(4).is-inview { transition-delay: 0.24s; }
+.process__step:nth-child(1).is-inview {
+  transition-delay: 0s;
+}
+.process__step:nth-child(2).is-inview {
+  transition-delay: 0.08s;
+}
+.process__step:nth-child(3).is-inview {
+  transition-delay: 0.16s;
+}
+.process__step:nth-child(4).is-inview {
+  transition-delay: 0.24s;
+}
 
 /* ========== ACCESSIBILITÉ PREMIUM ========== */
 /* Focus visible pour tous les éléments interactifs */
@@ -316,14 +328,20 @@ a:hover {
 
 /* ========== TYPOGRAPHIE & ESPACEMENT ========== */
 /* Amélioration de la hiérarchie typographique */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   color: var(--text);
   line-height: var(--leading-tight);
   font-weight: 600;
 }
 
-p, li {
+p,
+li {
   font-family: var(--font-sans);
   color: var(--text-secondary);
   line-height: var(--leading-normal);
@@ -448,7 +466,8 @@ select:focus {
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -475,8 +494,8 @@ select:focus {
 /* Tous les éléments interactifs ont au moins 44x44px */
 button,
 a,
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   min-height: 44px;
   min-width: 44px;
 }
@@ -551,12 +570,24 @@ li a {
   animation: fadeInUp 0.8s var(--ease-out-expo) backwards;
 }
 
-.is-inview .bento-item:nth-child(1) { animation-delay: 0.1s; }
-.is-inview .bento-item:nth-child(2) { animation-delay: 0.2s; }
-.is-inview .bento-item:nth-child(3) { animation-delay: 0.3s; }
-.is-inview .bento-item:nth-child(4) { animation-delay: 0.4s; }
-.is-inview .bento-item:nth-child(5) { animation-delay: 0.5s; }
-.is-inview .bento-item:nth-child(6) { animation-delay: 0.6s; }
+.is-inview .bento-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.is-inview .bento-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.is-inview .bento-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.is-inview .bento-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.is-inview .bento-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.is-inview .bento-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 @keyframes fadeInUp {
   from {

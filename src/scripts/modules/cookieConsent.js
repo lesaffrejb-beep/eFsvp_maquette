@@ -60,7 +60,7 @@ export class CookieConsent {
 
     // Dispatch custom event for analytics or other modules
     const event = new window.CustomEvent('cookieConsentGiven', {
-      detail: { consent: 'accepted' }
+      detail: { consent: 'accepted' },
     });
     window.dispatchEvent(event);
   }
@@ -71,7 +71,7 @@ export class CookieConsent {
 
     // Dispatch custom event
     const event = new window.CustomEvent('cookieConsentGiven', {
-      detail: { consent: 'rejected' }
+      detail: { consent: 'rejected' },
     });
     window.dispatchEvent(event);
   }

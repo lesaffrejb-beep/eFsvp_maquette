@@ -87,7 +87,9 @@ export class LazyLoadManager {
       img.classList.add('lazy-error');
 
       // Show fallback
-      img.src = 'data:image/svg+xml,' + encodeURIComponent(`
+      img.src =
+        'data:image/svg+xml,' +
+        encodeURIComponent(`
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
           <rect width="400" height="300" fill="#223044"/>
           <text x="50%" y="50%" fill="#9AA3AE" text-anchor="middle" dy=".3em" font-family="sans-serif" font-size="14">

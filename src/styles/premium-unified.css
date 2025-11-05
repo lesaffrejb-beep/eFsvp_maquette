@@ -10,8 +10,10 @@
   border-radius: var(--radius-md) !important; /* 12px au lieu de pill */
   box-shadow: var(--shadow-hero-cta) !important; /* 0 24px 48px rgba(0,0,0,.40) */
   font-weight: 700 !important;
-  color: #FFFFFF !important;
-  transition: transform 200ms ease-out, box-shadow 200ms ease-out !important;
+  color: #ffffff !important;
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out !important;
 }
 
 .btn--hero:hover {
@@ -93,7 +95,7 @@
   font-family: var(--font-sans) !important;
   font-size: clamp(2.5rem, 5vw, 3.5rem) !important; /* ~40-56px */
   font-weight: 700 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   line-height: 1 !important;
   display: block !important;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
@@ -113,7 +115,11 @@
 
 /* Section testimonials: fond sombre premium */
 .testimonials {
-  background: linear-gradient(to bottom, var(--dark-section-bg), var(--dark-section-bg-end)) !important;
+  background: linear-gradient(
+    to bottom,
+    var(--dark-section-bg),
+    var(--dark-section-bg-end)
+  ) !important;
   color: var(--text-on-dark) !important;
 }
 
@@ -136,12 +142,14 @@
   border-radius: var(--radius-lg) !important; /* 20px */
   padding: var(--space-8) !important;
   box-shadow: var(--shadow-dark-card) !important; /* 0 16px 40px rgba(0,0,0,.25) */
-  transition: transform 200ms ease, box-shadow 200ms ease !important;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease !important;
 }
 
 .testimonial-card:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.30) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Quote: blanc haute lisibilité */
@@ -151,7 +159,7 @@
   font-style: italic !important;
   line-height: 1.5 !important;
   margin-bottom: var(--space-6) !important;
-  color: #F6F3EF !important; /* Blanc cassé premium */
+  color: #f6f3ef !important; /* Blanc cassé premium */
 }
 
 /* Nom auteur */
@@ -161,7 +169,7 @@
   font-style: normal !important;
   display: block !important;
   margin-bottom: var(--space-1) !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 /* Rôle et contexte */
@@ -266,8 +274,9 @@
   width: 20px;
   height: 20px;
   color: var(--accent) !important;
-  transition: transform var(--duration-base) var(--ease-smooth),
-              color var(--duration-base) var(--ease-smooth) !important;
+  transition:
+    transform var(--duration-base) var(--ease-smooth),
+    color var(--duration-base) var(--ease-smooth) !important;
   flex-shrink: 0;
 }
 
@@ -277,7 +286,7 @@
 }
 
 /* Rotation icône quand ouvert (45deg pour le + qui devient x) */
-.faq__question[aria-expanded="true"] .faq__icon {
+.faq__question[aria-expanded='true'] .faq__icon {
   transform: rotate(45deg) !important;
 }
 
@@ -285,8 +294,9 @@
 .faq__answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--duration-slow) var(--ease-smooth),
-              padding var(--duration-slow) var(--ease-smooth) !important;
+  transition:
+    max-height var(--duration-slow) var(--ease-smooth),
+    padding var(--duration-slow) var(--ease-smooth) !important;
 }
 
 .faq__item.active .faq__answer {
@@ -350,17 +360,27 @@ select,
 }
 
 /* Stagger: ajouter delay via JS ou CSS nth-child */
-.process__step:nth-child(1) { transition-delay: 0ms; }
-.process__step:nth-child(2) { transition-delay: 80ms; }
-.process__step:nth-child(3) { transition-delay: 160ms; }
-.process__step:nth-child(4) { transition-delay: 240ms; }
+.process__step:nth-child(1) {
+  transition-delay: 0ms;
+}
+.process__step:nth-child(2) {
+  transition-delay: 80ms;
+}
+.process__step:nth-child(3) {
+  transition-delay: 160ms;
+}
+.process__step:nth-child(4) {
+  transition-delay: 240ms;
+}
 
 /* Hover cards: légère élévation */
 .service-card,
 .portfolio-card,
 .case-card,
 .pricing-card {
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .service-card:hover,
@@ -404,7 +424,7 @@ select,
 }
 
 /* Current page indicator */
-.nav__link[aria-current="page"] {
+.nav__link[aria-current='page'] {
   color: var(--accent);
   font-weight: 600;
 }
@@ -462,7 +482,9 @@ select,
   padding: var(--space-2);
   cursor: pointer;
   opacity: 0.6;
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
   z-index: 10;
 }
 
@@ -485,7 +507,8 @@ select,
 }
 
 @keyframes scrollBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

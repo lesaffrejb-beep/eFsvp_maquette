@@ -16,7 +16,7 @@ export class ProcessReveal {
   init() {
     // Si l'utilisateur préfère réduire les animations, ne pas animer
     if (this.prefersReducedMotion) {
-      this.steps.forEach(step => {
+      this.steps.forEach((step) => {
         step.style.opacity = '1';
         step.style.transform = 'none';
       });
@@ -27,7 +27,8 @@ export class ProcessReveal {
     this.steps.forEach((step, index) => {
       step.style.opacity = '0';
       step.style.transform = 'translateY(32px)';
-      step.style.transition = 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)';
+      step.style.transition =
+        'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1), transform 400ms cubic-bezier(0.4, 0, 0.2, 1)';
       step.style.transitionDelay = `${index * 120}ms`;
     });
 

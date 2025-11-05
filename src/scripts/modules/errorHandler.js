@@ -34,11 +34,15 @@ export class ErrorHandler {
     });
 
     // Resource loading errors
-    window.addEventListener('error', (event) => {
-      if (event.target !== window) {
-        this.handleResourceError(event);
-      }
-    }, true);
+    window.addEventListener(
+      'error',
+      (event) => {
+        if (event.target !== window) {
+          this.handleResourceError(event);
+        }
+      },
+      true
+    );
   }
 
   handleError(errorInfo) {
@@ -90,7 +94,9 @@ export class ErrorHandler {
 
   handleImageError(img) {
     // Placeholder SVG avec bon ratio d'aspect
-    img.src = 'data:image/svg+xml,' + encodeURIComponent(`
+    img.src =
+      'data:image/svg+xml,' +
+      encodeURIComponent(`
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
         <rect width="400" height="300" fill="#223044"/>
         <text x="50%" y="50%" fill="#9AA3AE" text-anchor="middle" dy=".3em" font-family="sans-serif" font-size="16">
