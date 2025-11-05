@@ -436,24 +436,65 @@ class App {
 
   // ========== PORTFOLIO FILTERS ==========
   initPortfolioFilters() {
-    const filters = document.querySelectorAll('.portfolio__filter');
+    // Legacy portfolio filters (old system)
+    const legacyFilters = document.querySelectorAll('.portfolio__filter');
     const cards = document.querySelectorAll('.portfolio-card');
 
-    if (filters.length === 0) return;
+    if (legacyFilters.length > 0) {
+      legacyFilters.forEach((filter) => {
+        filter.addEventListener('click', () => {
+          const category = filter.getAttribute('data-filter');
 
-    filters.forEach((filter) => {
-      filter.addEventListener('click', () => {
-        const category = filter.getAttribute('data-filter');
+          // Update active
+          legacyFilters.forEach((f) => f.classList.remove('portfolio__filter--active'));
+          filter.classList.add('portfolio__filter--active');
 
-        // Update active
-        filters.forEach((f) => f.classList.remove('portfolio__filter--active'));
-        filter.classList.add('portfolio__filter--active');
+          // Filter cards
+          cards.forEach((card) => {
+            const cardCategory = card.getAttribute('data-category');
 
-        // Filter cards
+            if (category === 'all' || cardCategory === category) {
+              gsap.to(card, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out',
+                onStart: () => {
+                  card.style.display = 'block';
+                },
+              });
+            } else {
+              gsap.to(card, {
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.3,
+                ease: 'power2.in',
+                onComplete: () => {
+                  card.style.display = 'none';
+                },
+              });
+            }
+          });
+        });
+      });
+    }
+
+    // New pills system with double filtering (client + type)
+    const filterButtons = document.querySelectorAll('.filter');
+
+    if (filterButtons.length > 0) {
+      const state = { client: 'all', type: 'all' };
+
+      const applyFilters = () => {
         cards.forEach((card) => {
-          const cardCategory = card.getAttribute('data-category');
+          const cardClient = card.getAttribute('data-client');
+          const cardType = card.getAttribute('data-type');
 
-          if (category === 'all' || cardCategory === category) {
+          const matchClient = (state.client === 'all') || (cardClient === state.client);
+          const matchType = (state.type === 'all') || (cardType === state.type);
+          const visible = matchClient && matchType;
+
+          if (visible) {
             gsap.to(card, {
               opacity: 1,
               scale: 1,
@@ -461,6 +502,7 @@ class App {
               ease: 'power2.out',
               onStart: () => {
                 card.style.display = 'block';
+                card.hidden = false;
               },
             });
           } else {
@@ -471,12 +513,38 @@ class App {
               ease: 'power2.in',
               onComplete: () => {
                 card.style.display = 'none';
+                card.hidden = true;
               },
             });
           }
         });
+      };
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const group = btn.getAttribute('data-filter-group');
+          const value = btn.getAttribute('data-filter-value');
+
+          // Reset visual state for this group
+          document.querySelectorAll(`.filter[data-filter-group="${group}"]`)
+            .forEach((b) => {
+              b.classList.remove('is-active');
+              b.setAttribute('aria-pressed', 'false');
+            });
+
+          // Activate current button
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-pressed', 'true');
+
+          // Update state and apply filters
+          state[group] = value;
+          applyFilters();
+        });
       });
-    });
+
+      // Initialize filters
+      applyFilters();
+    }
   }
 
   // ========== TESTIMONIALS ==========

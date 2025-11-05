@@ -896,19 +896,30 @@
           </header>
 
           <!-- Filters -->
-          <div class="portfolio__filters">
-            <button class="portfolio__filter portfolio__filter--active" data-filter="all">
-              Tout
-            </button>
-            <button class="portfolio__filter" data-filter="institutions">Institutions</button>
-            <button class="portfolio__filter" data-filter="entreprises">Entreprises</button>
-            <button class="portfolio__filter" data-filter="spectacles">Spectacles</button>
+          <div class="filters" role="region" aria-labelledby="filters-title">
+            <h3 id="filters-title" class="sr-only">Filtres</h3>
+
+            <!-- Groupe CLIENT (tri par client) -->
+            <div class="filters__group" role="toolbar" aria-label="Filtrer par client">
+              <button class="filter is-active" data-filter-group="client" data-filter-value="all" aria-pressed="true">Tout</button>
+              <button class="filter" data-filter-group="client" data-filter-value="institution" aria-pressed="false">Institutions</button>
+              <button class="filter" data-filter-group="client" data-filter-value="entreprise" aria-pressed="false">Entreprises</button>
+              <button class="filter" data-filter-group="client" data-filter-value="spectacle" aria-pressed="false">Spectacles</button>
+            </div>
+
+            <!-- Groupe TYPE (filtrage par type de projet) -->
+            <div class="filters__group" role="toolbar" aria-label="Filtrer par type">
+              <button class="filter is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Tous les types</button>
+              <button class="filter" data-filter-group="type" data-filter-value="brand" aria-pressed="false">Hymnes & marque</button>
+              <button class="filter" data-filter-group="type" data-filter-value="mediation" aria-pressed="false">Spectacles & médiations</button>
+              <button class="filter" data-filter-group="type" data-filter-value="immersive" aria-pressed="false">Formats immersifs</button>
+            </div>
           </div>
 
           <!-- Portfolio Grid -->
           <div class="portfolio__grid">
             <!-- Project 1 -->
-            <article class="portfolio-card" data-category="institutions" data-scroll data-lift>
+            <article class="portfolio-card" data-category="institutions" data-client="institution" data-type="brand" data-scroll data-lift>
               <div class="portfolio-card__visual">
                 <div class="portfolio-card__overlay"></div>
                 <div
@@ -929,7 +940,7 @@
             </article>
 
             <!-- Project 2 -->
-            <article class="portfolio-card" data-category="entreprises" data-scroll data-lift>
+            <article class="portfolio-card" data-category="entreprises" data-client="institution" data-type="brand" data-scroll data-lift>
               <div class="portfolio-card__visual">
                 <div class="portfolio-card__overlay"></div>
                 <div
@@ -950,7 +961,7 @@
             </article>
 
             <!-- Project 3 -->
-            <article class="portfolio-card" data-category="entreprises" data-scroll data-lift>
+            <article class="portfolio-card" data-category="entreprises" data-client="entreprise" data-type="brand" data-scroll data-lift>
               <div class="portfolio-card__visual">
                 <div class="portfolio-card__overlay"></div>
                 <div
@@ -971,7 +982,7 @@
             </article>
 
             <!-- Project 4 -->
-            <article class="portfolio-card" data-category="institutions" data-scroll data-lift>
+            <article class="portfolio-card" data-category="institutions" data-client="institution" data-type="mediation" data-scroll data-lift>
               <div class="portfolio-card__visual">
                 <div class="portfolio-card__overlay"></div>
                 <div
@@ -991,7 +1002,7 @@
             </article>
 
             <!-- Project 5 -->
-            <article class="portfolio-card" data-category="spectacles" data-scroll data-lift>
+            <article class="portfolio-card" data-category="spectacles" data-client="institution" data-type="immersive" data-scroll data-lift>
               <div class="portfolio-card__visual">
                 <div class="portfolio-card__overlay"></div>
                 <div
@@ -1012,7 +1023,7 @@
             </article>
 
             <!-- Project 6 -->
-            <article class="portfolio-card" data-category="institutions" data-scroll data-lift>
+            <article class="portfolio-card" data-category="institutions" data-client="institution" data-type="immersive" data-scroll data-lift>
               <div class="portfolio-card__visual">
                 <div class="portfolio-card__overlay"></div>
                 <div
