@@ -21,6 +21,7 @@ import { ProgressBar } from './modules/progressBar.js';
 import { CopyEmail } from './modules/copyEmail.js';
 import { KnowledgeVoicePlayer } from './modules/knowledgeVoice.js';
 import { ProcessReveal } from './modules/processReveal.js';
+import { CookieConsent } from './modules/cookieConsent.js';
 import Swiper from 'swiper';
 import { Pagination, Autoplay } from 'swiper/modules';
 
@@ -146,6 +147,9 @@ class App {
   }
 
   initCore() {
+    // Cookie Consent (RGPD/CNIL) - Initialize early
+    this.modules.cookieConsent = new CookieConsent();
+
     // Smooth Scroll (Lenis)
     this.modules.smoothScroll = new SmoothScroll();
     window.lenis = this.modules.smoothScroll.lenis; // Global access
