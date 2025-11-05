@@ -1,3 +1,25 @@
+[
+  {
+    "id": 1,
+    "value": "60+",
+    "label": "Représentations"
+  },
+  {
+    "id": 2,
+    "value": "15+",
+    "label": "Projets institutionnels"
+  },
+  {
+    "id": 3,
+    "value": "1200€",
+    "label": "À partir de"
+  },
+  {
+    "id": 4,
+    "value": "4",
+    "label": "Années d'expérience terrain"
+  }
+]
 {
   "metadata": {
     "source": "Chunks #1 + #2 (fichier complet)",

@@ -1,4 +1,42 @@
 {
+  "hero": {
+    "title": {
+      "line1": "Vous avez déjà écrit l'histoire.",
+      "line2": "Nous la mettons en scène avec mesure."
+    },
+    "subtitle": "Une direction narrative et musicale ciselée qui laisse respirer vos moments clés et magnifie votre signature.",
+    "cta": {
+      "text": "Partagez votre histoire",
+      "href": "#contact"
+    },
+    "metrics": [
+      {
+        "value": "60+",
+        "label": "Représentations"
+      },
+      {
+        "value": "15+",
+        "label": "Projets institutionnels"
+      },
+      {
+        "value": "1200€",
+        "label": "À partir de"
+      }
+    ]
+  },
+  "audioSection": {
+    "title": "Écoutez ce que nous créons",
+    "subtitle": "Des récits qui touchent, portés par la musique",
+    "infoCard": {
+      "number": "3",
+      "title": "formats",
+      "text": "Écriture · Audio · Live"
+    },
+    "statsCard": {
+      "number": "60+",
+      "title": "représentations",
+      "text": "depuis 2022"
+    },
   "metadata": {
     "source": "Chunks #1 + #2 (lignes 0-1934, fichier complet)",
     "language": "fr",
@@ -80,6 +118,11 @@
       "author": "Cliente institutionnelle"
     },
     "cta": {
+      "text": "Découvrir tous nos projets",
+      "href": "#portfolio"
+    }
+  },
+  "flagshipCases": {
       "label": "Découvrir tous nos projets",
       "href": "#portfolio"
     }
@@ -89,6 +132,11 @@
     "subtitle": "Problème · Approche · Effet",
     "cases": [
       {
+        "id": "sival",
+        "badge": "Série narrative",
+        "title": "SIVAL — L'innovation agricole racontée",
+        "client": "Destination Angers",
+        "year": 2025,
         "badge": "Série narrative",
         "title": "SIVAL — L'innovation agricole racontée",
         "client": "Destination Angers",
@@ -100,6 +148,11 @@
         "audioLabel": "Écouter 30s"
       },
       {
+        "id": "atelier-lacour",
+        "badge": "Anniversaire entreprise",
+        "title": "Atelier Lacour — Métaphore de la forêt",
+        "client": "Entreprise familiale",
+        "year": 2024,
         "badge": "Anniversaire entreprise",
         "title": "Atelier Lacour — Métaphore de la forêt",
         "client": "Entreprise familiale",
@@ -111,6 +164,12 @@
         "audioLabel": "Écouter 30s"
       },
       {
+        "id": "etat-de-nature",
+        "badge": "Spectacle immersif",
+        "featured": true,
+        "title": "État de nature — Spectacle en pleine forêt",
+        "client": "PNR Loire-Anjou-Touraine",
+        "year": "2023 →",
         "badge": "Spectacle immersif",
         "title": "État de nature — Spectacle en pleine forêt",
         "client": "PNR Loire-Anjou-Touraine",
@@ -125,6 +184,18 @@
       }
     ],
     "cta": {
+      "text": "Voir tous les projets",
+      "href": "#portfolio"
+    }
+  },
+  "services": {
+    "title": "Quatre formules, une signature",
+    "subtitle": "De l'écriture seule au spectacle complet",
+    "formulas": [
+      {
+        "id": "ecriture",
+        "title": "Écriture seule",
+        "priceLabel": "À partir de 1 200€",
       "label": "Voir tous les projets",
       "href": "#portfolio"
     }
@@ -144,6 +215,9 @@
         "cta": "Découvrir"
       },
       {
+        "id": "creation-complete",
+        "title": "Création complète",
+        "priceLabel": "À partir de 2 500€",
         "title": "Création complète",
         "price": "À partir de 2 500€",
         "features": [
@@ -154,6 +228,9 @@
         "cta": "Découvrir"
       },
       {
+        "id": "performance-live",
+        "title": "Performance Live",
+        "priceLabel": "À partir de 3 600€",
         "title": "Performance Live",
         "price": "À partir de 3 600€",
         "featured": true,
@@ -166,6 +243,9 @@
         "cta": "Découvrir"
       },
       {
+        "id": "droits-exploitation",
+        "title": "Droits d'exploitation",
+        "priceLabel": "Sur devis",
         "title": "Droits d'exploitation",
         "price": "Sur devis",
         "features": [
@@ -177,6 +257,7 @@
       }
     ]
   },
+  "process": {
   "sectionPortfolio": {
     "title": "Ils nous ont fait confiance",
     "stats": [
@@ -318,6 +399,50 @@
       }
     ],
     "cta": {
+      "text": "Démarrer votre projet",
+      "href": "#contact"
+    }
+  },
+  "testimonials": {
+    "title": "Ce qu'ils disent",
+    "items": [
+      {
+        "rating": 5,
+        "quote": "J'ai vu des gens pleurer. C'était exactement ce que je voulais sans savoir que ça existait.",
+        "author": "Marie Dupont",
+        "role": "Directrice Communication",
+        "organization": "Département Maine-et-Loire",
+        "context": "Hymne officiel \"La force de la douceur\" (2024)"
+      },
+      {
+        "rating": 5,
+        "quote": "Ils ont compris notre métier en deux semaines mieux que certains partenaires historiques.",
+        "author": "Pierre Martin",
+        "role": "Directeur",
+        "organization": "Atelier Lacour",
+        "context": "Récit 25 ans & passation (2024)"
+      },
+      {
+        "rating": 5,
+        "quote": "Dignité, vérité, émotion. Jamais gênant, toujours juste. Une approche rare et précieuse.",
+        "author": "Sophie Bernard",
+        "role": "Responsable Événementiel",
+        "organization": "Réseau Cocagne",
+        "context": "Portraits de réinsertion (2024)"
+      }
+    ]
+  },
+  "statsSection": {
+    "title": "La preuve par les chiffres"
+  },
+  "contact": {
+    "title": "La vôtre commence maintenant",
+    "subtitle": "Réponse sous 48h · Premier échange offert",
+    "quote": "Toutes les bonnes histoires méritent d'être racontées.",
+    "form": {
+      "fields": [
+        {
+          "name": "name",
       "label": "Démarrer votre projet",
       "href": "#contact"
     }
@@ -377,6 +502,7 @@
           "autocomplete": "name"
         },
         {
+          "name": "email",
           "id": "email",
           "label": "Email professionnel",
           "type": "email",
@@ -384,6 +510,7 @@
           "autocomplete": "email"
         },
         {
+          "name": "organization",
           "id": "organisation",
           "label": "Organisation",
           "type": "text",
@@ -391,11 +518,21 @@
           "autocomplete": "organization"
         },
         {
+          "name": "projectType",
           "id": "type-projet",
           "label": "Type de projet",
           "type": "select",
           "required": true,
           "options": [
+            "Anniversaire",
+            "Inauguration",
+            "Spectacle",
+            "Hymne / Identité",
+            "Autre"
+          ]
+        },
+        {
+          "name": "date",
             { "value": "", "label": "Sélectionner" },
             { "value": "anniversaire", "label": "Anniversaire" },
             { "value": "inauguration", "label": "Inauguration" },
@@ -411,6 +548,27 @@
           "required": false
         },
         {
+          "name": "budget",
+          "label": "Budget estimé",
+          "type": "range",
+          "min": 3000,
+          "max": 30000,
+          "step": 1000,
+          "default": 10000,
+          "required": false
+        },
+        {
+          "name": "message",
+          "label": "Parlez-nous de votre projet",
+          "type": "textarea",
+          "maxLength": 500,
+          "required": true
+        }
+      ],
+      "consent": "J'accepte d'être recontacté pour échanger sur mon projet",
+      "submitText": "Partagez votre histoire"
+    },
+    "alternativeContact": {
           "id": "budget",
           "label": "Budget estimé",
           "type": "range",
@@ -440,6 +598,32 @@
   },
   "footer": {
     "brand": {
+      "name": "En français s'il vous plaît",
+      "tagline": "Vous avez déjà écrit l'histoire",
+      "baseline": "Studio narratif & musical"
+    },
+    "navigation": [
+      { "label": "Créations", "href": "#creations" },
+      { "label": "Services", "href": "#services" },
+      { "label": "Portfolio", "href": "#portfolio" },
+      { "label": "Process", "href": "#process" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "legal": [
+      { "label": "Mentions légales", "href": "/mentions-legales" },
+      { "label": "CGV", "href": "/cgv" },
+      { "label": "Confidentialité", "href": "/confidentialite" },
+      { "label": "RGPD", "href": "/rgpd" }
+    ],
+    "newsletter": {
+      "title": "Restez inspiré",
+      "description": "1 email/mois · Projets & coulisses",
+      "cta": "S'inscrire"
+    },
+    "copyright": "© 2025 En français s'il vous plaît · Tous droits réservés",
+    "madeWith": "Made with ♥ in Angers"
+  }
       "logo": "En français s'il vous plaît",
       "tagline": "\"Vous avez déjà écrit l'histoire\"",
       "baseline": "Studio narratif & musical"
