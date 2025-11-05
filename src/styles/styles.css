@@ -281,25 +281,33 @@ section:nth-of-type(even) {
 }
 
 /* Primary Button - Brique Premium */
-.btn--primary {
+.btn--primary,
+a.btn--primary {
   background-color: var(--primary);
-  color: white !important; /* Force contraste WCAG */
+  color: white;
   box-shadow: var(--shadow-md);
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+a.btn--primary:hover {
   background-color: var(--primary-hover);
   /* Effet papier décollé subtil */
   box-shadow: var(--shadow-lift);
   transform: translateY(-3px);
-  color: white !important; /* Force contraste WCAG */
+  color: white;
 }
 
-.btn--primary:active {
+.btn--primary:active,
+a.btn--primary:active {
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
   background-color: var(--primary-active);
-  color: white !important; /* Force contraste WCAG */
+  color: white;
+}
+
+.btn--primary:visited,
+a.btn--primary:visited {
+  color: white;
 }
 
 /* Secondary Button - Outline raffiné */
@@ -377,57 +385,73 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
-   5. NAVIGATION - AWARD PRESTIGE
+   5. NAVIGATION - VERRE MAT LISIBLE (AA)
    ============================================ */
 .nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-sticky);
+  z-index: 1000;
+  /* Verre mat contrasté (clair) - TOUJOURS lisible */
+  background-color: rgba(245, 230, 211, 0.85); /* var(--bg) avec alpha */
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  backdrop-filter: saturate(1.1) blur(10px);
+  border-bottom: 1px solid rgba(216, 198, 180, 0.6); /* var(--border) */
+  /* Couleur de texte par défaut du header */
+  --nav-fg: var(--text);
+  color: var(--nav-fg);
   padding: var(--space-6) 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translateY(0);
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
-  /* Transparent au départ, texte visible sur hero sombre */
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
-  border-bottom: 1px solid transparent;
-  pointer-events: auto !important;
+  transition: background-color var(--dur-2) var(--ease);
 }
 
-/* Glassmorphism activé au scroll */
+/* Empêche toute dilution qui rendrait le texte pâle */
+.nav,
+.nav * {
+  mix-blend-mode: normal;
+}
+
+/* Liens du header : visibles sans survol */
+.nav__logo,
+.nav__link {
+  color: var(--nav-fg);
+  text-decoration: none;
+}
+
+/* États accessibles et différenciés */
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  outline: none;
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* État "visible" au scroll : conserve lisibilité sans casser les hovers */
 .nav.visible {
-  transform: translateY(0);
-  opacity: 1;
-  /* Glassmorphism - Fond ivoire semi-transparent avec blur */
-  background-color: rgba(251, 248, 243, 0.75); /* --parchment avec transparence */
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%); /* Support Safari */
-  box-shadow: 0 2px 16px rgba(29, 44, 59, 0.08);
-  border-bottom: 1px solid rgba(221, 213, 200, 0.6); /* --border avec transparence */
+  background-color: rgba(251, 241, 227, 0.92); /* var(--surface) avec alpha */
+  border-bottom-color: rgba(216, 198, 180, 0.75);
+  --nav-fg: var(--text); /* #1A2332 par défaut, sombre et lisible */
 }
 
-/* Texte de la nav - s'adapte au contexte */
-.nav .nav__logo,
-.nav .nav__link {
-  color: var(--text-on-dark); /* Blanc sur hero sombre */
-}
-
+/* Évite d'écraser les hovers avec une couleur forcée */
 .nav.visible .nav__logo,
 .nav.visible .nav__link {
-  color: #1d2c3b !important; /* Bleu marine sur glassmorphism - Force lisibilité */
+  color: var(--nav-fg);
 }
 
-.nav .nav__logo:hover,
-.nav .nav__link:hover,
-.nav.visible .nav__logo:hover,
-.nav.visible .nav__link:hover {
+/* Option : lien actif (page courante) */
+.nav__link[aria-current="page"] {
   color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Visited: même lisibilité */
+.nav__link:visited {
+  color: var(--nav-fg);
 }
 
 .nav.visible .nav__toggle span {
@@ -441,25 +465,23 @@ section:nth-of-type(even) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  visibility: visible !important;
 }
 
 .nav__logo {
   font-family: var(--font-serif);
   font-size: var(--text-xl);
   font-weight: 700;
-  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--dur-2) var(--ease);
   letter-spacing: -0.01em;
   text-decoration: none;
 }
 
 .nav__menu {
   display: block;
-  visibility: visible !important;
 }
 
 .nav__list {
-  display: flex !important;
+  display: flex;
   gap: var(--space-8);
   list-style: none;
   margin: 0;
@@ -472,7 +494,7 @@ section:nth-of-type(even) {
   font-weight: 500;
   position: relative;
   padding: var(--space-2) 0;
-  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--dur-2) var(--ease);
   text-decoration: none;
 }
 
@@ -485,15 +507,12 @@ section:nth-of-type(even) {
   width: 0;
   height: 2px;
   background: var(--primary);
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width var(--dur-2) var(--ease);
 }
 
-.nav__link:hover::after {
+.nav__link:hover::after,
+.nav__link:focus-visible::after {
   width: 100%;
-}
-
-.nav__link:hover {
-  color: var(--primary);
 }
 
 /* Mobile Toggle */
@@ -510,7 +529,7 @@ section:nth-of-type(even) {
 .nav__toggle span {
   width: 24px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--text);
   transition: all var(--transition-base);
   border-radius: 2px;
 }
@@ -1399,6 +1418,84 @@ section:nth-of-type(even) {
 }
 
 /* ============================================
+   7B. CARD COMPONENTS SYSTEM (UNIFIED)
+   ============================================ */
+/* Base card component */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--space-6);
+  transition: all var(--dur-2) var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Card header */
+.card__header {
+  margin-bottom: var(--space-4);
+}
+
+.card__title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+
+.card__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+/* Card body */
+.card__body {
+  margin-bottom: var(--space-4);
+}
+
+/* Card footer */
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+/* Card variants */
+.card--case {
+  background-color: var(--surface-elevated);
+  border-radius: var(--r-lg);
+  padding: var(--space-8);
+}
+
+.card--case:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lift);
+}
+
+.card--offer {
+  text-align: center;
+  padding: var(--space-10);
+}
+
+.card--offer:hover {
+  background-color: var(--surface-elevated);
+}
+
+.card--stat {
+  text-align: center;
+  padding: var(--space-8);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-elevated) 100%);
+}
+
+/* ============================================
    8. FLAGSHIP CASES SECTION (Award 2025 Premium)
    ============================================ */
 .flagship-cases {
@@ -1573,7 +1670,8 @@ section:nth-of-type(even) {
 }
 
 /* Audio Button Premium */
-.case-card__audio-btn {
+button.case-card__audio-btn,
+a.case-card__audio-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -1590,7 +1688,8 @@ section:nth-of-type(even) {
   overflow: hidden;
 }
 
-.case-card__audio-btn::before {
+button.case-card__audio-btn::before,
+a.case-card__audio-btn::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -1600,27 +1699,31 @@ section:nth-of-type(even) {
   z-index: -1;
 }
 
-.case-card__audio-btn:hover::before {
+button.case-card__audio-btn:hover::before,
+a.case-card__audio-btn:hover::before {
   opacity: 1;
 }
 
-.case-card__audio-btn:hover {
+button.case-card__audio-btn:hover,
+a.case-card__audio-btn:hover {
   border-color: var(--accent);
   transform: scale(1.05);
   box-shadow: var(--glow-accent);
-  color: white !important; /* Force contraste WCAG sur gradient */
+  color: white;
 }
 
-.case-card__audio-btn--featured {
+button.case-card__audio-btn--featured,
+a.case-card__audio-btn--featured {
   background: var(--accent);
   border-color: var(--accent);
-  color: white !important; /* Force contraste WCAG */
+  color: white;
 }
 
-.case-card__audio-btn--featured:hover {
+button.case-card__audio-btn--featured:hover,
+a.case-card__audio-btn--featured:hover {
   background: var(--primary);
   border-color: var(--primary);
-  color: white !important; /* Force contraste WCAG */
+  color: white;
 }
 
 .case-card__audio-btn .audio-icon {
