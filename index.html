@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- SEO Meta Tags -->
     <title>En français s'il vous plaît | Création narrative & musicale sur-mesure</title>
@@ -183,6 +183,9 @@
 
     <!-- Premium Unified - Excellence PR -->
     <link rel="stylesheet" href="/src/styles/premium-unified.css">
+
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="/src/styles/cookie-banner.css">
 
     <!-- Critical CSS Inline -->
     <style>
@@ -1315,6 +1318,7 @@
                                     class="form__input"
                                     required
                                     aria-required="true"
+                                    autocomplete="name"
                                 >
                                 <span class="form__error"></span>
                             </div>
@@ -1328,6 +1332,7 @@
                                     class="form__input"
                                     required
                                     aria-required="true"
+                                    autocomplete="email"
                                 >
                                 <span class="form__error"></span>
                             </div>
@@ -1341,6 +1346,7 @@
                                     class="form__input"
                                     required
                                     aria-required="true"
+                                    autocomplete="organization"
                                 >
                                 <span class="form__error"></span>
                             </div>
@@ -1536,6 +1542,27 @@
             <button class="btn btn--primary" id="modal-close">Continuer</button>
         </div>
     </div>
+
+    <!-- RGPD Consent Banner -->
+    <aside class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Gestion des cookies" aria-hidden="true">
+        <div class="cookie-banner__content">
+            <div class="cookie-banner__text">
+                <h2 class="cookie-banner__title">Respect de votre vie privée</h2>
+                <p class="cookie-banner__description">
+                    Nous n'utilisons aucun cookie publicitaire ou de tracking. Ce site fonctionne sans collecte de données personnelles.
+                    En poursuivant votre navigation, vous acceptez l'utilisation de cookies techniques nécessaires au bon fonctionnement du site.
+                </p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="btn btn--secondary-small cookie-banner__btn" id="cookie-accept" aria-label="Accepter et fermer">
+                    J'ai compris
+                </button>
+                <button class="cookie-banner__link" id="cookie-reject" aria-label="Refuser les cookies optionnels">
+                    Refuser
+                </button>
+            </div>
+        </div>
+    </aside>
 
     <!-- Scripts -->
     <script type="module" src="/src/scripts/main.js"></script>
