@@ -385,73 +385,74 @@ a.btn--primary:visited {
 }
 
 /* ============================================
-   5. NAVIGATION - VERRE MAT LISIBLE (AA)
+   5. NAVIGATION - GLASSMORPHISM INTELLIGENT
    ============================================ */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
-  /* Verre mat contrasté (clair) - TOUJOURS lisible */
-  background-color: rgba(245, 230, 211, 0.85); /* var(--bg) avec alpha */
-  -webkit-backdrop-filter: saturate(1.1) blur(10px);
-  backdrop-filter: saturate(1.1) blur(10px);
-  border-bottom: 1px solid rgba(216, 198, 180, 0.6); /* var(--border) */
-  /* Couleur de texte par défaut du header */
-  --nav-fg: var(--text);
-  color: var(--nav-fg);
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
   padding: var(--space-6) 0;
-  transition: background-color var(--dur-2) var(--ease);
+  /* Au départ : transparent pour laisser voir le hero */
+  background-color: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Empêche toute dilution qui rendrait le texte pâle */
-.nav,
-.nav * {
-  mix-blend-mode: normal;
-}
-
-/* Liens du header : visibles sans survol */
+/* Texte BLANC au départ (sur hero sombre) */
 .nav__logo,
 .nav__link {
-  color: var(--nav-fg);
+  color: var(--text-on-dark);
   text-decoration: none;
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* États accessibles et différenciés */
-.nav__link:hover,
-.nav__link:focus-visible {
-  color: var(--primary);
-  text-decoration: underline;
-  outline: none;
+/* Hover sur hero : accent */
+.nav__logo:hover,
+.nav__link:hover {
+  color: var(--accent);
 }
 
+/* Focus visible (accessibilité) */
 .nav__link:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* État "visible" au scroll : conserve lisibilité sans casser les hovers */
-.nav.visible {
-  background-color: rgba(251, 241, 227, 0.92); /* var(--surface) avec alpha */
-  border-bottom-color: rgba(216, 198, 180, 0.75);
-  --nav-fg: var(--text); /* #1A2332 par défaut, sombre et lisible */
+/* Lien actif */
+.nav__link[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 600;
 }
 
-/* Évite d'écraser les hovers avec une couleur forcée */
+/* ==== Au scroll : GLASSMORPHISM ==== */
+.nav.visible {
+  /* Fond glassmorphism premium */
+  background-color: rgba(251, 248, 243, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 2px 16px rgba(29, 44, 59, 0.08);
+  border-bottom: 1px solid rgba(221, 213, 200, 0.6);
+}
+
+/* Texte SOMBRE au scroll (sur fond clair) */
 .nav.visible .nav__logo,
 .nav.visible .nav__link {
-  color: var(--nav-fg);
+  color: var(--ink);
 }
 
-/* Option : lien actif (page courante) */
-.nav__link[aria-current="page"] {
+/* Hover au scroll : primary */
+.nav.visible .nav__logo:hover,
+.nav.visible .nav__link:hover {
   color: var(--primary);
-  text-decoration: underline;
 }
 
-/* Visited: même lisibilité */
-.nav__link:visited {
-  color: var(--nav-fg);
+/* Lien actif au scroll */
+.nav.visible .nav__link[aria-current="page"] {
+  color: var(--primary);
 }
 
 .nav.visible .nav__toggle span {

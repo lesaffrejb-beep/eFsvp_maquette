@@ -19,20 +19,18 @@
   --sand-deep: #f0e9dc; /* Variation plus profonde */
 
   /* ===== Surfaces & Text ===== */
-  --bg: #f5e6d3; /* var(--parchment) mais plus lisible */
-  --surface: #fbf1e3; /* Ivoire clair pour surfaces */
-  --surface-2: #e9d5bc; /* Variante pour contraste */
+  --bg: var(--parchment);
+  --surface: var(--sand);
   --surface-elevated: #ffffff; /* Blanc cassé pour élévation */
   --surface-dimmed: var(--sand-deep);
   --surface-contrast: #e8e0d5; /* Contraste subtil */
-  --text: #1a2332; /* Texte principal sombre (AA contrast) */
-  --text-2: #4a5568; /* Texte secondaire */
+  --text: var(--ink);
   --text-secondary: #4a5568;
   --text-tertiary: #6b7280;
   --muted: #9ca3af;
   --text-inverse: #fefefe;
   --text-on-dark: #f7f5f2; /* Texte sur fond sombre premium */
-  --border: #d8c6b4; /* Bordure visible */
+  --border: #ddd5c8;
   --border-strong: #c5b9a8;
 
   /* ===== Hero & Dark Sections ===== */
@@ -163,17 +161,4 @@
   /* ===== Layers ===== */
   --z-sticky: 1100;
   --z-tooltip: 1600;
-}
-
-/* ===== Dark Mode Support ===== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121417;
-    --surface: #161a1d;
-    --surface-2: #1c2126;
-    --text: #eaecef;
-    --text-2: #b7bdc7;
-    --primary: #d66a49;
-    --border: #2a323a;
-  }
 }
