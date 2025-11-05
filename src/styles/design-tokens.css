@@ -19,18 +19,20 @@
   --sand-deep: #f0e9dc; /* Variation plus profonde */
 
   /* ===== Surfaces & Text ===== */
-  --bg: var(--parchment);
-  --surface: var(--sand);
+  --bg: #f5e6d3; /* var(--parchment) mais plus lisible */
+  --surface: #fbf1e3; /* Ivoire clair pour surfaces */
+  --surface-2: #e9d5bc; /* Variante pour contraste */
   --surface-elevated: #ffffff; /* Blanc cassé pour élévation */
   --surface-dimmed: var(--sand-deep);
   --surface-contrast: #e8e0d5; /* Contraste subtil */
-  --text: var(--ink);
+  --text: #1a2332; /* Texte principal sombre (AA contrast) */
+  --text-2: #4a5568; /* Texte secondaire */
   --text-secondary: #4a5568;
   --text-tertiary: #6b7280;
   --muted: #9ca3af;
   --text-inverse: #fefefe;
   --text-on-dark: #f7f5f2; /* Texte sur fond sombre premium */
-  --border: #ddd5c8;
+  --border: #d8c6b4; /* Bordure visible */
   --border-strong: #c5b9a8;
 
   /* ===== Hero & Dark Sections ===== */
@@ -111,13 +113,30 @@
   --border-radius: var(--radius-md); /* Alias legacy - maintenant 12px */
   --border-radius-full: var(--radius-full); /* Alias legacy */
 
+  /* ===== Font Size Scale (Unified) ===== */
+  --fs-xxl: clamp(2.2rem, 2vw + 1.2rem, 3.4rem);
+  --fs-xl: clamp(1.6rem, 1.2vw + 1rem, 2.4rem);
+  --fs-lg: clamp(1.25rem, 0.6vw + 0.95rem, 1.5rem);
+  --fs-md: 1rem;
+  --fs-sm: 0.9375rem;
+  --fs-xs: 0.875rem;
+
+  /* ===== Border Radius Unified (Short aliases) ===== */
+  --r-xs: 0.4rem;
+  --r-sm: 0.6rem;
+  --r-md: 0.9rem;
+  --r-lg: 1.2rem;
+
   /* ===== Motion & Effects ===== */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --duration-fast: 0.15s;
   --duration-base: 0.25s;
   --duration-slow: 0.4s;
+  --dur-1: 0.2s;
+  --dur-2: 0.35s;
   --transition-fast: 0.18s cubic-bezier(0.22, 0.9, 0.24, 1);
   --transition-base: 0.22s cubic-bezier(0.22, 0.9, 0.24, 1);
   --transition-slow: 0.26s cubic-bezier(0.22, 0.9, 0.24, 1);
@@ -144,4 +163,17 @@
   /* ===== Layers ===== */
   --z-sticky: 1100;
   --z-tooltip: 1600;
+}
+
+/* ===== Dark Mode Support ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121417;
+    --surface: #161a1d;
+    --surface-2: #1c2126;
+    --text: #eaecef;
+    --text-2: #b7bdc7;
+    --primary: #d66a49;
+    --border: #2a323a;
+  }
 }

@@ -634,21 +634,56 @@ class App {
     }
   }
 
-  // ========== BENTO GRID AUDIO BUTTONS ==========
+  // ========== BENTO GRID AUDIO BUTTONS (ROBUST) ==========
   initBentoAudioButtons() {
     const audioButtons = document.querySelectorAll('.case-card__audio-btn[data-scroll-to]');
 
     audioButtons.forEach((button) => {
+      // Initialize aria-pressed
+      button.setAttribute('aria-pressed', 'false');
+
       button.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = button.getAttribute('data-scroll-to');
+
+        // Ignore empty targetId
+        if (!targetId || targetId.trim() === '') {
+          console.warn('Bento audio button has empty data-scroll-to');
+          return;
+        }
+
         const targetSection = document.getElementById(targetId);
 
-        if (targetSection && this.modules.smoothScroll) {
-          this.modules.smoothScroll.scrollTo(targetSection, {
-            offset: -100,
-            duration: 1.5,
-          });
+        if (targetSection) {
+          // Pause all other audio players first
+          if (this.modules.audioPlayers?.pauseAll) {
+            this.modules.audioPlayers.pauseAll();
+          }
+
+          // Update aria-pressed state
+          audioButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+          button.setAttribute('aria-pressed', 'true');
+
+          // Scroll to section
+          if (this.modules.smoothScroll) {
+            this.modules.smoothScroll.scrollTo(targetSection, {
+              offset: -100,
+              duration: 1.5,
+            });
+          } else {
+            // Fallback if smooth scroll not available
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+
+          // Focus on the player after scroll (accessibility)
+          setTimeout(() => {
+            const player = targetSection.querySelector('[role="region"], audio, [data-audio-player]');
+            if (player) {
+              player.focus();
+            }
+          }, 1600); // After scroll duration
+        } else {
+          console.warn(`Bento audio button target not found: ${targetId}`);
         }
       });
     });
