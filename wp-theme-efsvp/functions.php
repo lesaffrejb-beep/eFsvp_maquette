@@ -22,12 +22,13 @@ require_once EFSVP_THEME_DIR . '/inc/theme-setup.php';
 require_once EFSVP_THEME_DIR . '/inc/enqueue-scripts.php';
 require_once EFSVP_THEME_DIR . '/inc/gutenberg-config.php';
 require_once EFSVP_THEME_DIR . '/inc/customizer.php';
+require_once EFSVP_THEME_DIR . '/inc/custom-post-types.php';
 
 /**
  * Register custom blocks
  */
 function efsvp_register_blocks() {
-    $blocks = ['hero', 'services', 'portfolio', 'testimonials', 'cta'];
+    $blocks = ['hero', 'services', 'portfolio', 'testimonials', 'faq', 'cta'];
 
     foreach ($blocks as $block) {
         $block_path = EFSVP_THEME_DIR . "/blocks/{$block}";
