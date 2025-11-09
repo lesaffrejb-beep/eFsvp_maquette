@@ -42,8 +42,16 @@ function efsvp_enqueue_assets() {
 
     // Component styles
     wp_enqueue_style(
-        'efsvp-components',
+        'efsvp-header',
         EFSVP_THEME_URI . '/assets/css/components/header.css',
+        ['efsvp-design-system'],
+        EFSVP_VERSION
+    );
+
+    // Button styles
+    wp_enqueue_style(
+        'efsvp-buttons',
+        EFSVP_THEME_URI . '/assets/css/components/buttons.css',
         ['efsvp-design-system'],
         EFSVP_VERSION
     );
