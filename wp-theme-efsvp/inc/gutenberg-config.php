@@ -186,3 +186,20 @@ function efsvp_editor_gradients() {
     add_theme_support('disable-custom-gradients');
 }
 add_action('after_setup_theme', 'efsvp_editor_gradients');
+
+/**
+ * Register pattern categories
+ */
+function efsvp_register_pattern_categories() {
+    if (!function_exists('register_block_pattern_category')) {
+        return;
+    }
+
+    register_block_pattern_category(
+        'efsvp-actes',
+        [
+            'label' => __('EfSVP Actes', 'efsvp')
+        ]
+    );
+}
+add_action('init', 'efsvp_register_pattern_categories');
