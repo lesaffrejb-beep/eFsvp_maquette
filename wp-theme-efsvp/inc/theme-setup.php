@@ -20,6 +20,7 @@ function efsvp_theme_setup() {
     // Add theme support for various features
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    add_theme_support('wp-block-styles');
 
     // Custom logo support
     add_theme_support('custom-logo', [
@@ -43,8 +44,9 @@ function efsvp_theme_setup() {
     // Responsive embeds
     add_theme_support('responsive-embeds');
 
-    // Wide alignment for Gutenberg
+    // Wide and full alignments for Gutenberg
     add_theme_support('align-wide');
+    add_theme_support('align-full');
 
     // Allow usage of block templates and parts within the classic theme
     add_theme_support('block-templates');
@@ -52,7 +54,11 @@ function efsvp_theme_setup() {
 
     // Editor styles
     add_theme_support('editor-styles');
-    add_editor_style('assets/css/gutenberg.css');
+    add_editor_style([
+        'assets/css/design-tokens.css',
+        'assets/css/gutenberg.css',
+        'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Cormorant:ital,wght@1,600&display=swap'
+    ]);
 
     // Disable core block patterns (optionnel - pour plus de contrôle)
     // remove_theme_support('core-block-patterns');

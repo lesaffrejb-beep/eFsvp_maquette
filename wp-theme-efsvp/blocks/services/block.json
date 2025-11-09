@@ -7,7 +7,7 @@
   "icon": "grid-view",
   "description": "Grille de services/prestations avec icônes",
   "keywords": ["services", "grid", "prestations", "efsvp"],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "textdomain": "efsvp",
   "supports": {
     "align": ["wide", "full"],
@@ -26,25 +26,46 @@
       "type": "array",
       "default": [
         {
-          "title": "Écriture",
-          "description": "Récits sur-mesure pour vos événements clés",
-          "icon": "✍️"
+          "title": "Écriture immersive",
+          "description": "Récits signature entièrement composés pour votre événement",
+          "icon": "✍️",
+          "price": "À partir de 1 200 €",
+          "badges": ["Best-seller", "Sur-mesure"],
+          "features": [
+            "Atelier de cadrage narratif",
+            "Recherche documentaire dédiée",
+            "Livraison d'un script complet"
+          ]
         },
         {
-          "title": "Composition",
-          "description": "Musique originale adaptée à votre identité",
-          "icon": "🎵"
+          "title": "Composition musicale",
+          "description": "Identité sonore originale et arrangements live",
+          "icon": "🎵",
+          "price": "À partir de 1 800 €",
+          "badges": ["Live", "Création originale"],
+          "features": [
+            "Création d'un thème exclusif",
+            "Variations pour chaque moment clé",
+            "Livret de partitions et stems"
+          ]
         },
         {
-          "title": "Performance Live",
-          "description": "Spectacles immersifs et captivants",
-          "icon": "🎭"
+          "title": "Performance live",
+          "description": "Expérience scénique avec interprètes, lumières et scénographie",
+          "icon": "🎭",
+          "price": "Sur devis",
+          "badges": ["Expérience immersive"],
+          "features": [
+            "Direction artistique complète",
+            "Casting des interprètes",
+            "Coordination technique le jour J"
+          ]
         }
       ]
     },
     "columns": {
       "type": "number",
-      "default": 3
+      "default": 0
     }
   },
   "editorStyle": "file:./editor.css",
