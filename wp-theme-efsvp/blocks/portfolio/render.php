@@ -96,7 +96,8 @@ $columns = $attributes['columns'] ?? 3;
 
 $wrapper_attributes = get_block_wrapper_attributes([
     'class' => 'efsvp-portfolio',
-    'style' => sprintf('--columns: %d;', absint($columns))
+    'style' => sprintf('--columns: %d;', absint($columns)),
+    'id' => 'portfolio'
 ]);
 ?>
 

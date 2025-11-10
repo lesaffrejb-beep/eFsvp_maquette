@@ -80,6 +80,7 @@ if ($style_attribute) {
 $wrapper_attributes = get_block_wrapper_attributes([
     'class' => implode(' ', array_map('sanitize_html_class', $classes)),
     'style' => $style_attribute,
+    'id' => 'hero'
 ]);
 ?>
 
@@ -155,4 +156,14 @@ $wrapper_attributes = get_block_wrapper_attributes([
             </div>
         <?php endif; ?>
     </div>
+
+    <a class="hero__scroll" href="#services" id="hero-scroll" aria-label="Faire défiler vers la section services">
+        <span class="hero__scroll-text">Faire défiler</span>
+        <span class="hero__scroll-chevron" aria-hidden="true">
+            <svg width="18" height="48" viewBox="0 0 18 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 0V46" stroke="currentColor" stroke-width="2" />
+                <path d="M1 38L9 46L17 38" stroke="currentColor" stroke-width="2" />
+            </svg>
+        </span>
+    </a>
 </section>

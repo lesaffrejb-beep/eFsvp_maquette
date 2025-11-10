@@ -28,6 +28,7 @@ $wrapper_attributes = get_block_wrapper_attributes([
     'class' => 'efsvp-services',
     'style' => sprintf('--columns: %d;', $columns),
     'data-service-count' => count($services),
+    'id' => 'services'
 ]);
 ?>
 

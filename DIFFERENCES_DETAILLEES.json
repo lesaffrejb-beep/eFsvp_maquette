@@ -1,0 +1,206 @@
+{
+  "audit_date": "2025-11-10",
+  "conformity_level": "85-90%",
+  "critical_issues_count": 8,
+  "important_issues_count": 2,
+  "minor_issues_count": 12,
+  
+  "critical_issues": [
+    {
+      "id": 1,
+      "priority": "CRITIQUE",
+      "title": "ID='hero' manquant",
+      "impact": "Les liens d'ancrage vers #hero ne fonctionnent pas",
+      "affected_file": "wp-theme-efsvp/blocks/hero/render.php",
+      "line": "~86",
+      "action": "Ajouter id='hero' à la balise <section>",
+      "code_location": "la section principale du hero block"
+    },
+    {
+      "id": 2,
+      "priority": "CRITIQUE",
+      "title": "ID='services' manquant",
+      "impact": "Les liens d'ancrage vers #services ne fonctionnent pas",
+      "affected_file": "wp-theme-efsvp/blocks/services/render.php",
+      "action": "Ajouter id='services' à la section",
+      "code_location": "la balise <section> principale"
+    },
+    {
+      "id": 3,
+      "priority": "CRITIQUE",
+      "title": "ID='portfolio' manquant",
+      "impact": "Les liens d'ancrage vers #portfolio ne fonctionnent pas",
+      "affected_file": "wp-theme-efsvp/blocks/portfolio/render.php",
+      "action": "Ajouter id='portfolio' à la section",
+      "code_location": "la balise <section> principale"
+    },
+    {
+      "id": 4,
+      "priority": "CRITIQUE",
+      "title": "ID='faq' manquant",
+      "impact": "Les liens d'ancrage vers #faq ne fonctionnent pas",
+      "affected_file": "wp-theme-efsvp/blocks/faq/render.php",
+      "action": "Ajouter id='faq' à la section",
+      "code_location": "la balise <section> principale"
+    },
+    {
+      "id": 5,
+      "priority": "CRITIQUE",
+      "title": "IDs FAQ Items manquants (faq-answer-1 à faq-answer-8)",
+      "impact": "Les accordions ne peuvent pas être ciblés directement",
+      "affected_file": "wp-theme-efsvp/blocks/faq/render.php",
+      "action": "Ajouter id='faq-answer-{$index}' à chaque item",
+      "code_location": "dans la boucle foreach des FAQ items"
+    },
+    {
+      "id": 6,
+      "priority": "CRITIQUE",
+      "title": "ID='contact-form' manquant",
+      "impact": "Le formulaire ne peut pas être ciblé pour validation JS",
+      "affected_file": "wp-theme-efsvp/blocks/contact/render.php",
+      "action": "Ajouter id='contact-form' à la balise <form>",
+      "code_location": "le formulaire principal"
+    },
+    {
+      "id": 7,
+      "priority": "CRITIQUE",
+      "title": "Modal de succès manquante (id='success-modal')",
+      "impact": "La confirmation de formulaire ne peut pas être affichée",
+      "affected_file": "wp-theme-efsvp/blocks/contact/render.php",
+      "action": "Ajouter la modal avec id='success-modal'",
+      "code_location": "après le formulaire"
+    },
+    {
+      "id": 8,
+      "priority": "CRITIQUE",
+      "title": "Preloader manquant (id='preloader')",
+      "impact": "L'animation de chargement ne fonctionne pas",
+      "affected_file": "wp-theme-efsvp/templates/front-page.html ou header.php",
+      "action": "Ajouter le preloader avec id='preloader'",
+      "code_location": "au début du body"
+    }
+  ],
+
+  "important_issues": [
+    {
+      "id": 9,
+      "priority": "IMPORTANT",
+      "title": "Cookie Banner manquante",
+      "impact": "Le consentement RGPD ne fonctionne pas",
+      "affected_file": "wp-theme-efsvp/footer.php ou patterns",
+      "action": "Ajouter la banneau avec id='cookie-banner', id='cookie-accept', id='cookie-reject'",
+      "code_location": "à la fin du body"
+    },
+    {
+      "id": 10,
+      "priority": "IMPORTANT",
+      "title": "ID='hero-scroll' manquant",
+      "impact": "Le lien de scroll vers la section suivante ne fonctionne pas",
+      "affected_file": "wp-theme-efsvp/blocks/hero/render.php",
+      "action": "Ajouter id='hero-scroll' au lien chevron",
+      "code_location": "dans le hero block"
+    }
+  ],
+
+  "minor_issues": [
+    {
+      "id": 11,
+      "priority": "MINEUR",
+      "title": "design-system.css étendu",
+      "impact": "Duplication de variables CSS (augmente la taille)",
+      "affected_file": "wp-theme-efsvp/assets/css/design-system.css",
+      "note": "Maquette: 9 lignes | WordPress: 160+ lignes (répétition des variables design-tokens.css)"
+    },
+    {
+      "id": 12,
+      "priority": "MINEUR",
+      "title": "Préfixes de classe modifiés",
+      "impact": "Aucun impact visuel (CSS corrigé en conséquence)",
+      "note": "Maquette: .service-card | WordPress: .efsvp-service-card (pour éviter conflits)",
+      "classes_affected": [
+        ".hero → .efsvp-hero",
+        ".service-card → .efsvp-service-card",
+        ".portfolio-card → .efsvp-portfolio-card",
+        ".faq-item → .efsvp-faq-item"
+      ]
+    }
+  ],
+
+  "verification_checklist": {
+    "css_files": [
+      {
+        "file": "wp-theme-efsvp/assets/css/components/buttons.css",
+        "check": "Contient-il tous les variants de boutons ?",
+        "check_against": "src/styles/styles.css (.btn, .btn--primary, .btn--secondary, etc.)"
+      },
+      {
+        "file": "wp-theme-efsvp/assets/css/components/header.css",
+        "check": "Navigation sticky fonctionne-t-elle ?",
+        "check_against": "index.html navigation sticky"
+      },
+      {
+        "file": "wp-theme-efsvp/assets/css/components/footer.css",
+        "check": "Layout footer correct ?",
+        "check_against": "index.html footer structure"
+      },
+      {
+        "file": "wp-theme-efsvp/assets/css/gutenberg.css",
+        "check": "Pas de conflits Gutenberg ?",
+        "check_against": "Vérifier visuelle"
+      }
+    ],
+    "javascript": [
+      {
+        "aspect": "Sélecteurs CSS",
+        "check": "Correspondent-ils aux nouveaux noms de classe ?",
+        "status": "À VÉRIFIER"
+      },
+      {
+        "aspect": "Attributs data-*",
+        "check": "Sont-ils correctement lus par les scripts ?",
+        "status": "À TESTER"
+      },
+      {
+        "aspect": "IDs",
+        "check": "Les scripts trouvent-ils les nouveaux IDs ?",
+        "status": "À TESTER après ajout des IDs"
+      }
+    ]
+  },
+
+  "files_comparison": {
+    "css": {
+      "identical": [
+        "cookie-banner.css",
+        "design-tokens.css",
+        "premium-enhancements.css",
+        "premium-unified.css",
+        "styles.css"
+      ],
+      "modified": [
+        "design-system.css"
+      ],
+      "additional_in_wp": [
+        "components/buttons.css",
+        "components/header.css",
+        "components/footer.css",
+        "gutenberg.css"
+      ]
+    },
+    "javascript": {
+      "identical_count": 18,
+      "only_in_maquette": 0,
+      "only_in_wp": 0
+    }
+  },
+
+  "summary": {
+    "total_differences": 22,
+    "critical": 8,
+    "important": 2,
+    "minor": 12,
+    "estimated_fix_time": "2-3 heures",
+    "complexity": "Faible à Modérée",
+    "required_knowledge": ["PHP de base", "HTML/CSS"]
+  }
+}

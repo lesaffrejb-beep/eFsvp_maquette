@@ -74,6 +74,25 @@
     </div>
 </footer>
 
+<!-- RGPD Consent Banner -->
+<aside
+    class="cookie-banner"
+    id="cookie-banner"
+    role="dialog"
+    aria-label="Gestion des cookies"
+>
+    <div class="cookie-banner__content">
+        <div class="cookie-banner__text">
+            <h3>Bienvenue 👋</h3>
+            <p>Nous utilisons des cookies pour vous offrir la meilleure expérience possible.</p>
+        </div>
+        <div class="cookie-banner__buttons">
+            <button id="cookie-reject" class="btn btn--secondary">Refuser</button>
+            <button id="cookie-accept" class="btn btn--primary">Accepter</button>
+        </div>
+    </div>
+</aside>
+
 <?php wp_footer(); ?>
 </body>
 </html>

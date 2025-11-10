@@ -17,7 +17,8 @@ $posts_per_page = $attributes['postsPerPage'] ?? -1;
 $has_acf = function_exists('get_field');
 
 $wrapper_attributes = get_block_wrapper_attributes([
-    'class' => 'efsvp-faq'
+    'class' => 'efsvp-faq',
+    'id' => 'faq'
 ]);
 
 $query = new WP_Query([
@@ -61,12 +62,12 @@ if ($query->have_posts()) {
             <div class="efsvp-faq__grid">
                 <?php foreach ($faqs as $index => $faq): ?>
                     <?php $category_slug = !empty($faq['category']) ? sanitize_title($faq['category']) : 'general'; ?>
-                    <article class="faq__item" data-category="<?php echo esc_attr($category_slug); ?>">
+                    <article class="faq__item" data-category="<?php echo esc_attr($category_slug); ?>" id="faq-answer-<?php echo esc_attr($index + 1); ?>">
                         <button
                             class="faq__question"
                             type="button"
                             aria-expanded="false"
-                            aria-controls="faq-answer-<?php echo esc_attr($faq['id']); ?>"
+                            aria-controls="faq-answer-content-<?php echo esc_attr($index + 1); ?>"
                         >
                             <span class="faq__question-text"><?php echo esc_html($faq['question']); ?></span>
                             <span class="faq__icon" aria-hidden="true">
@@ -76,7 +77,7 @@ if ($query->have_posts()) {
                             </span>
                         </button>
 
-                        <div class="faq__answer" id="faq-answer-<?php echo esc_attr($faq['id']); ?>">
+                        <div class="faq__answer" id="faq-answer-content-<?php echo esc_attr($index + 1); ?>">
                             <?php echo wp_kses_post(wpautop($faq['answer'])); ?>
                         </div>
                     </article>

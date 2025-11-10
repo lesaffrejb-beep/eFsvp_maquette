@@ -53,7 +53,7 @@ $wrapper_attributes = get_block_wrapper_attributes([
                         <?php echo do_shortcode($form_shortcode); ?>
                     <?php else: ?>
                         <!-- Fallback form -->
-                        <form class="contact__form-fallback" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                        <form class="contact__form-fallback" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" id="contact-form">
                             <input type="hidden" name="action" value="efsvp_contact_form">
                             <?php wp_nonce_field('efsvp_contact_form', 'efsvp_contact_nonce'); ?>
 
@@ -87,6 +87,27 @@ $wrapper_attributes = get_block_wrapper_attributes([
                     <?php endif; ?>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div
+        class="modal"
+        id="success-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+    >
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h3 class="modal__title" id="modal-title">Message envoyé !</h3>
+            <p class="modal__text">Merci <span id="modal-name"></span> ! On vous répond sous 48h.</p>
+            <button class="btn btn--primary" id="modal-close">Continuer</button>
         </div>
     </div>
 </section>
